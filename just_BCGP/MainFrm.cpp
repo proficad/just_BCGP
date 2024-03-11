@@ -63,7 +63,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_wndMenuBar.SetBarStyle(m_wndMenuBar.GetBarStyle() | CBRS_SIZE_DYNAMIC);
 
 	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
-		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME, 0, 0, FALSE, 0, 0, IDB_TOOLBAR_HC))
+//		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME, 0, 0, FALSE, 0, 0, IDB_TOOLBAR_HC))
+		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME, 0, 0, FALSE, 0, 0, 0))
 	{
 		TRACE0("Failed to create toolbar\n");
 		return -1;      // fail to create
@@ -209,15 +210,24 @@ void CMainFrame::OnFileClose()
    DestroyWindow();
 }
 
-LRESULT CMainFrame::OnToolbarReset(WPARAM /*wp*/,LPARAM)
+LRESULT CMainFrame::OnToolbarReset(WPARAM wp,LPARAM)
 {
 	// TODO: reset toolbar with id = (UINT) wp to its initial state:
 	//
-	// UINT uiToolBarId = (UINT) wp;
-	// if (uiToolBarId == IDR_MAINFRAME)
-	// {
-	//		do something with m_wndToolBar
-	// }
+	UINT uiToolBarId = (UINT) wp;
+	if (uiToolBarId == IDR_MAINFRAME)
+	{
+	//	do something with m_wndToolBar
+		CBCGPToolbarComboBoxButton comboButton(ID_COMBO_ZOOM,
+			CImageHash::GetImageOfCommand(ID_COMBO_ZOOM, FALSE),
+			CBS_DROPDOWNLIST, 100);
+
+		comboButton.AddItem(L"one");
+		comboButton.AddItem(L"two");
+
+
+		int li_count = m_wndToolBar.ReplaceButton(ID_COMBO_ZOOM, comboButton);
+	}
 
 	return 0;
 }

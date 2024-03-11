@@ -133,6 +133,7 @@ BEGIN
     SEPARATOR
     BUTTON      ID_FIT_PAGE_TO_WIN
     BUTTON      ID_ZOBRAZIT_ZOOMIN
+    BUTTON      ID_COMBO_ZOOM
     BUTTON      ID_ZOBRAZIT_ZOOMOUT
     SEPARATOR
     BUTTON      ID_RASTER_AUTO
@@ -185,6 +186,7 @@ BEGIN
         BEGIN
             MENUITEM "",                            ID_VIEW_APPLOOK
         END
+        MENUITEM "Zoom",                        ID_COMBO_ZOOM
     END
     POPUP "&Help"
     BEGIN
