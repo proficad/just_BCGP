@@ -21,6 +21,9 @@ BEGIN_MESSAGE_MAP(CMainFrame, CBCGPFrameWnd)
 	ON_REGISTERED_MESSAGE(BCGM_RESETTOOLBAR, &CMainFrame::OnToolbarReset)
 	ON_COMMAND(ID_TOOLBOX, &CMainFrame::OnToolBox)
 	ON_MESSAGE(WM_DPICHANGED, &CMainFrame::OnDPIChanged)
+	ON_COMMAND(ID_COMBO_ZOOM, OnComboZoom)
+	ON_CBN_SELCHANGE(ID_COMBO_ZOOM, OnComboZoom)
+	ON_CBN_EDITCHANGE(ID_COMBO_ZOOM, OnComboZoom)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -33,7 +36,7 @@ static UINT indicators[] =
 
 // CMainFrame construction/destruction
 
-CMainFrame::CMainFrame()
+CMainFrame::CMainFrame() 
 {
 	SetDockingBarsIconList(IDB_WORKSPACE);
 
@@ -42,6 +45,13 @@ CMainFrame::CMainFrame()
 
 CMainFrame::~CMainFrame()
 {
+}
+
+CBCGPToolbarComboBoxButton* CMainFrame::GetZoomCombo() const
+{
+	return
+		(CBCGPToolbarComboBoxButton*)m_wndToolBar.GetButton
+		(m_wndToolBar.CommandToIndex(ID_COMBO_ZOOM));
 }
 
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -220,10 +230,12 @@ LRESULT CMainFrame::OnToolbarReset(WPARAM wp,LPARAM)
 	//	do something with m_wndToolBar
 		CBCGPToolbarComboBoxButton comboButton(ID_COMBO_ZOOM,
 			CImageHash::GetImageOfCommand(ID_COMBO_ZOOM, FALSE),
-			CBS_DROPDOWNLIST, 100);
+			CBS_DROPDOWN, 100);
 
-		comboButton.AddItem(L"one");
-		comboButton.AddItem(L"two");
+		comboButton.AddItem(L"50%");
+		comboButton.AddItem(L"100%");
+		comboButton.AddItem(L"200%");
+		comboButton.AddItem(L"500%");
 
 
 		int li_count = m_wndToolBar.ReplaceButton(ID_COMBO_ZOOM, comboButton);
@@ -249,6 +261,17 @@ void CMainFrame::OnToolBox()
 }
 
 
+
+void CMainFrame::OnComboZoom()
+{
+	CBCGPToolbarComboBoxButton* pCombo = GetZoomCombo();
+	if (pCombo)
+	{
+		CEdit* pEdit = pCombo->GetEditCtrl();
+		CString ls_what;
+		pEdit->GetWindowText(ls_what);
+	}
+}
 
 LRESULT CMainFrame::OnDPIChanged(WPARAM wp, LPARAM lp)
 {

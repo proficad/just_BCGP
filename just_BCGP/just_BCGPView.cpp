@@ -23,7 +23,7 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPView, CView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &Cjust_BCGPView::OnFilePrintPreview)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_MESSAGE(WM_PRINTCLIENT, &Cjust_BCGPView::OnPrintClient)
-	ON_COMMAND(ID_COMBO_ZOOM, OnComboZoom)
+
 END_MESSAGE_MAP()
 
 // Cjust_BCGPView construction/destruction
@@ -64,10 +64,7 @@ void Cjust_BCGPView::OnFilePrintPreview()
 	BCGPPrintPreview (this);
 }
 
-void Cjust_BCGPView::OnComboZoom()
-{
 
-}
 
 BOOL Cjust_BCGPView::OnPreparePrinting(CPrintInfo* pInfo)
 {

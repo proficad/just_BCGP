@@ -21,6 +21,8 @@ public:
 
 // Operations
 public:
+	
+
 
 // Overrides
 public:
@@ -45,12 +47,17 @@ protected:  // control bar embedded members
 	CBCGPPropBar			m_wndPropGrid;
 	CToolBoxBarEx			m_wndToolBox;
 
+
+	CBCGPToolbarComboBoxButton* GetZoomCombo() const;
+
+
 // Generated message map functions
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnFileClose();
 	afx_msg LRESULT OnToolbarReset(WPARAM,LPARAM);
 	afx_msg void OnToolBox();
+	afx_msg void OnComboZoom();
 	afx_msg LRESULT OnDPIChanged(WPARAM wp, LPARAM lp);
 	DECLARE_MESSAGE_MAP()
 
