@@ -57,8 +57,21 @@ protected:
 	afx_msg void OnFileClose();
 	afx_msg LRESULT OnToolbarReset(WPARAM,LPARAM);
 	afx_msg void OnToolBox();
+
 	afx_msg void OnComboZoom();
+	afx_msg void OnComboSnap();
+
 	afx_msg LRESULT OnDPIChanged(WPARAM wp, LPARAM lp);
 	DECLARE_MESSAGE_MAP()
+
+private:
+
+	CBCGPToolbarComboBoxButton m_combo_zoom;
+	CBCGPToolbarComboBoxButton m_combo_snap;
+
+
+	void Create_Combo_Zoom();
+	void Create_Combo_Snap();
+
 
 };

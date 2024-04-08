@@ -191,7 +191,9 @@
   <ItemGroup>
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="OutputBar.h" />
+    <ClInclude Include="panels\Panel_Symbols.h" />
     <ClInclude Include="PropertiesViewBar.h" />
+    <ClInclude Include="QDlgAttributes.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="just_BCGP.h" />
     <ClInclude Include="just_BCGPDoc.h" />
@@ -204,10 +206,15 @@
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="OutputBar.cpp" />
+    <ClCompile Include="panels\Panel_Symbols.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="PropertiesViewBar.cpp" />
     <ClCompile Include="just_BCGP.cpp" />
     <ClCompile Include="just_BCGPDoc.cpp" />
     <ClCompile Include="just_BCGPView.cpp" />
+    <ClCompile Include="QDlgAttributes.cpp" />
     <ClCompile Include="ToolBox.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

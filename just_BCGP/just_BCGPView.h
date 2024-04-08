@@ -44,6 +44,8 @@ protected:
 
 	afx_msg LRESULT OnPrintClient(WPARAM wp, LPARAM lp);
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnViewAttributes();
 };
 
 #ifndef _DEBUG  // debug version in just_BCGPView.cpp

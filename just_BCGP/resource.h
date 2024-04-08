@@ -5,6 +5,7 @@
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
 #define IDS_MAIN_TOOLBAR                101
+#define IDD_QDlgAttributes              117
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -18,6 +19,7 @@
 #define IDC_LIST_DLGBAR                 1048
 #define IDC_STATIC_DLGBAR               1049
 #define IDC_CHECK_DLGBAR                1050
+#define MY_GRID                         1051
 #define ID_VIEW_CUSTOMIZE               32770
 #define ID_VIEW_TOOLBARS                32771
 #define ID_VIEW_WORKSPACE               32791
@@ -55,14 +57,16 @@
 #define ID_FILE_OPTIONS                 32875
 #define ID_COMBO_ZOOM                   32876
 #define ID_VIEW_ZOOM                    32877
+#define ID_VIEW_ATTRIBUTES              32878
+#define ID_COMBO_SNAP                   32879
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        170
-#define _APS_NEXT_COMMAND_VALUE         32878
-#define _APS_NEXT_CONTROL_VALUE         1051
-#define _APS_NEXT_SYMED_VALUE           117
+#define _APS_NEXT_RESOURCE_VALUE        171
+#define _APS_NEXT_COMMAND_VALUE         32880
+#define _APS_NEXT_CONTROL_VALUE         1052
+#define _APS_NEXT_SYMED_VALUE           118
 #endif
 #endif

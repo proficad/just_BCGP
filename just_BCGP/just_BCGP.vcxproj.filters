@@ -31,6 +31,12 @@
     <ClCompile Include="WorkSpaceBar2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="QDlgAttributes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="panels\Panel_Symbols.cpp">
+      <Filter>panels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -65,6 +71,12 @@
     </ClInclude>
     <ClInclude Include="ToolBox.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QDlgAttributes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="panels\Panel_Symbols.h">
+      <Filter>panels</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -115,6 +127,9 @@
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="panels">
+      <UniqueIdentifier>{e188e02c-5e1b-4107-a67f-d43da0447049}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

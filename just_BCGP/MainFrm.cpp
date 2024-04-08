@@ -22,6 +22,7 @@ BEGIN_MESSAGE_MAP(CMainFrame, CBCGPFrameWnd)
 	ON_COMMAND(ID_TOOLBOX, &CMainFrame::OnToolBox)
 	ON_MESSAGE(WM_DPICHANGED, &CMainFrame::OnDPIChanged)
 	ON_COMMAND(ID_COMBO_ZOOM, OnComboZoom)
+	ON_COMMAND(ID_COMBO_SNAP, OnComboSnap)
 	ON_CBN_SELCHANGE(ID_COMBO_ZOOM, OnComboZoom)
 	ON_CBN_EDITCHANGE(ID_COMBO_ZOOM, OnComboZoom)
 END_MESSAGE_MAP()
@@ -36,7 +37,9 @@ static UINT indicators[] =
 
 // CMainFrame construction/destruction
 
-CMainFrame::CMainFrame() 
+CMainFrame::CMainFrame()
+	: m_combo_zoom(ID_COMBO_ZOOM, CImageHash::GetImageOfCommand(ID_COMBO_ZOOM, FALSE), CBS_DROPDOWN, 100)
+	, m_combo_snap(ID_COMBO_SNAP, CImageHash::GetImageOfCommand(ID_COMBO_SNAP, FALSE), CBS_DROPDOWN, 100)
 {
 	SetDockingBarsIconList(IDB_WORKSPACE);
 
@@ -124,7 +127,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	m_wndOutput.SetIconIndex(2);
 
-	if (!m_wndPropGrid.Create(_T("Properties"), this, CRect(0, 0, nPaneSize, nPaneSize),
+	if (!m_wndPropGrid.Create(_T("Vlastnosti"), this, CRect(0, 0, nPaneSize, nPaneSize),
 		TRUE,
 		ID_VIEW_PROPERTIES,
 		WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_RIGHT | CBRS_FLOAT_MULTI))
@@ -227,18 +230,9 @@ LRESULT CMainFrame::OnToolbarReset(WPARAM wp,LPARAM)
 	UINT uiToolBarId = (UINT) wp;
 	if (uiToolBarId == IDR_MAINFRAME)
 	{
-	//	do something with m_wndToolBar
-		CBCGPToolbarComboBoxButton comboButton(ID_COMBO_ZOOM,
-			CImageHash::GetImageOfCommand(ID_COMBO_ZOOM, FALSE),
-			CBS_DROPDOWN, 100);
-
-		comboButton.AddItem(L"50%");
-		comboButton.AddItem(L"100%");
-		comboButton.AddItem(L"200%");
-		comboButton.AddItem(L"500%");
-
-
-		int li_count = m_wndToolBar.ReplaceButton(ID_COMBO_ZOOM, comboButton);
+		Create_Combo_Snap();
+		Create_Combo_Zoom();
+		
 	}
 
 	return 0;
@@ -273,9 +267,70 @@ void CMainFrame::OnComboZoom()
 	}
 }
 
+
+void CMainFrame::OnComboSnap()
+{
+	int i = 5;
+}
+
+
 LRESULT CMainFrame::OnDPIChanged(WPARAM wp, LPARAM lp)
 {
 	LRESULT lRes = CBCGPFrameWnd::OnDPIChanged(wp, lp);
 
 	return lRes;
 }
+
+void CMainFrame::Create_Combo_Zoom()
+{
+	CBCGPToolbarComboBoxButton comboButton(ID_COMBO_ZOOM,
+		CImageHash::GetImageOfCommand(ID_COMBO_ZOOM, FALSE),
+		CBS_DROPDOWNLIST, 100);
+
+	m_combo_zoom.AddItem(L"  10%");
+	m_combo_zoom.AddItem(L"  25%");
+	m_combo_zoom.AddItem(L"  35%");
+	m_combo_zoom.AddItem(L"  50%");
+	m_combo_zoom.AddItem(L"  75%");
+	m_combo_zoom.AddItem(L" 100%");
+	m_combo_zoom.AddItem(L" 150%");
+	m_combo_zoom.AddItem(L" 200%");
+	m_combo_zoom.AddItem(L" 300%");
+	m_combo_zoom.AddItem(L" 500%");
+	m_combo_zoom.AddItem(L"1000%");
+	m_combo_zoom.AddItem(L"3000%");
+
+
+	int li_count = m_wndToolBar.ReplaceButton(ID_COMBO_ZOOM, m_combo_zoom);
+}
+
+void CMainFrame::Create_Combo_Snap()
+{
+	CBCGPToolbarComboBoxButton comboButton(ID_COMBO_SNAP,
+		CImageHash::GetImageOfCommand(ID_COMBO_SNAP, FALSE),
+		CBS_DROPDOWNLIST, 100);
+
+
+
+
+	m_combo_snap.AddItem(L" 0.2 mm");
+	m_combo_snap.AddItem(L" 0.5 mm");
+	m_combo_snap.AddItem(L" 1.0 mm");
+	m_combo_snap.AddItem(L" 2.0 mm");
+	m_combo_snap.AddItem(L" 4.0 mm");
+	m_combo_snap.AddItem(L" 5.0 mm");
+	m_combo_snap.AddItem(L"10.0 mm");
+	m_combo_snap.AddItem(L"20.0 mm");
+
+	m_combo_snap.AddItem(L"1/10 \"");
+	m_combo_snap.AddItem(L"1/5 \"");
+	m_combo_snap.AddItem(L"1/4 \"");
+	m_combo_snap.AddItem(L"1/3 \"");
+	m_combo_snap.AddItem(L"1/2 \"");
+	m_combo_snap.AddItem(L"1 \"");
+
+
+	int li_count = m_wndToolBar.ReplaceButton(ID_COMBO_SNAP, m_combo_snap);
+
+}
+

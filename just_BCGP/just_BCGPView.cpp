@@ -7,6 +7,8 @@
 #include "just_BCGPDoc.h"
 #include "just_BCGPView.h"
 
+#include "QDlgAttributes.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -24,6 +26,7 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPView, CView)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_MESSAGE(WM_PRINTCLIENT, &Cjust_BCGPView::OnPrintClient)
 
+	ON_COMMAND(ID_VIEW_ATTRIBUTES, &Cjust_BCGPView::OnViewAttributes)
 END_MESSAGE_MAP()
 
 // Cjust_BCGPView construction/destruction
@@ -127,4 +130,11 @@ void Cjust_BCGPView::OnContextMenu(CWnd*, CPoint point)
 	}
 
 	theApp.ShowPopupMenu(IDR_CONTEXT_MENU, point, this);
+}
+
+
+void Cjust_BCGPView::OnViewAttributes()
+{
+	QDlgAttributes l_dlg;
+	l_dlg.DoModal();
 }
