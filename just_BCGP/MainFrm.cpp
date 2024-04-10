@@ -57,6 +57,38 @@ CBCGPToolbarComboBoxButton* CMainFrame::GetZoomCombo() const
 		(m_wndToolBar.CommandToIndex(ID_COMBO_ZOOM));
 }
 
+int CMainFrame::Create_Panel_Symbols()
+{
+	const int nPaneSize = globalUtils.ScaleByDPI(200, this);
+
+	if (!m_panel_symbols.Create(_T("symbols"), this, CRect(0, 0, nPaneSize, nPaneSize),
+		TRUE, ID_VIEW_PANEL_SYMBOLS,
+		WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_LEFT | CBRS_FLOAT_MULTI))
+	{
+		TRACE0("Failed to create panel symbols\n");
+		return -1;      // fail to create
+	}
+
+	return 0;
+}
+
+
+int CMainFrame::Create_Panel_Pages()
+{
+	const int nPaneSize = globalUtils.ScaleByDPI(200, this);
+
+	if (!m_panel_pages.Create(_T("pages"), this, CRect(0, 0, nPaneSize, nPaneSize),
+		TRUE, ID_VIEW_PANEL_PAGES,
+		WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_LEFT | CBRS_FLOAT_MULTI))
+	{
+		TRACE0("Failed to create panel pages\n");
+		return -1;      // fail to create
+	}
+
+	return 0;
+}
+
+
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CBCGPFrameWnd::OnCreate(lpCreateStruct) == -1)
@@ -148,6 +180,11 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndToolBox.SetIconIndex(6);
 
+
+	if(-1 == Create_Panel_Symbols())	{		return FALSE;	}
+	if(-1 == Create_Panel_Pages())	{		return FALSE;	}
+
+
 	CString strMainToolbarTitle;
 	strMainToolbarTitle.LoadString(IDS_MAIN_TOOLBAR);
 	m_wndToolBar.SetWindowText(strMainToolbarTitle);
@@ -157,6 +194,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndWorkSpace.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndWorkSpace2.EnableDocking(CBRS_ALIGN_ANY);
+
+	m_panel_symbols.EnableDocking(CBRS_ALIGN_ANY);
+	m_panel_pages.EnableDocking(CBRS_ALIGN_ANY);
+
 	m_wndOutput.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndPropGrid.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndToolBox.EnableDocking(CBRS_ALIGN_ANY);
@@ -166,6 +207,10 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	DockControlBar(&m_wndToolBar);
 	DockControlBar(&m_wndWorkSpace);
 	m_wndWorkSpace2.AttachToTabWnd(&m_wndWorkSpace, BCGP_DM_STANDARD, FALSE, NULL);
+
+	DockControlBar(&m_panel_symbols);
+	DockControlBar(&m_panel_pages);
+
 	DockControlBar(&m_wndOutput);
 	DockControlBar(&m_wndPropGrid);
 	DockControlBar(&m_wndToolBox);

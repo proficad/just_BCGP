@@ -37,6 +37,9 @@
     <ClCompile Include="panels\Panel_Symbols.cpp">
       <Filter>panels</Filter>
     </ClCompile>
+    <ClCompile Include="panels\Panel_Pages.cpp">
+      <Filter>panels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -76,6 +79,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="panels\Panel_Symbols.h">
+      <Filter>panels</Filter>
+    </ClInclude>
+    <ClInclude Include="panels\Panel_Pages.h">
       <Filter>panels</Filter>
     </ClInclude>
   </ItemGroup>

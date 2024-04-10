@@ -6,6 +6,8 @@
 #define IDP_OLE_INIT_FAILED             100
 #define IDS_MAIN_TOOLBAR                101
 #define IDD_QDlgAttributes              117
+#define ID_VIEW_PANEL_SYMBOLS           118
+#define ID_VIEW_PANEL_PAGES             119
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -67,6 +69,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        171
 #define _APS_NEXT_COMMAND_VALUE         32880
 #define _APS_NEXT_CONTROL_VALUE         1052
-#define _APS_NEXT_SYMED_VALUE           118
+#define _APS_NEXT_SYMED_VALUE           120
 #endif
 #endif

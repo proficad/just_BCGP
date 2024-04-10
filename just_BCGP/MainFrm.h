@@ -8,6 +8,8 @@
 #include "OutputBar.h"
 #include "PropertiesViewBar.h"
 #include "ToolBox.h"
+#include "panels/Panel_Pages.h"
+#include "panels/Panel_Symbols.h"
 
 class CMainFrame : public CBCGPFrameWnd
 {
@@ -41,8 +43,13 @@ protected:  // control bar embedded members
 	CBCGPStatusBar			m_wndStatusBar;
 	CBCGPMenuBar			m_wndMenuBar;
 	CBCGPToolBar			m_wndToolBar;
+
 	CWorkSpaceBar			m_wndWorkSpace;
 	CWorkSpaceBar2			m_wndWorkSpace2;
+
+	Panel_Symbols			m_panel_symbols;
+	Panel_Pages				m_panel_pages;
+
 	COutputBar				m_wndOutput;
 	CBCGPPropBar			m_wndPropGrid;
 	CToolBoxBarEx			m_wndToolBox;
@@ -50,6 +57,8 @@ protected:  // control bar embedded members
 
 	CBCGPToolbarComboBoxButton* GetZoomCombo() const;
 
+	int Create_Panel_Symbols();
+	int Create_Panel_Pages();
 
 // Generated message map functions
 protected:
