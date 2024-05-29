@@ -8,6 +8,7 @@
 #define IDD_QDlgAttributes              117
 #define ID_VIEW_PANEL_SYMBOLS           118
 #define ID_VIEW_PANEL_PAGES             119
+#define ID_VIEW_PANEL_LAYERS            120
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -17,11 +18,14 @@
 #define IDB_TOOLS_PAGE1                 167
 #define IDB_TOOLS_PAGE2                 168
 #define IDD_DIALOGBAR                   169
+#define IDR_TOOLBAR1                    171
+#define IDR_TOOLBAR_PAGES               171
 #define IDC_COMPANY_URL                 1041
 #define IDC_LIST_DLGBAR                 1048
 #define IDC_STATIC_DLGBAR               1049
 #define IDC_CHECK_DLGBAR                1050
 #define MY_GRID                         1051
+#define IDC_HINT_COUPON                 1052
 #define ID_VIEW_CUSTOMIZE               32770
 #define ID_VIEW_TOOLBARS                32771
 #define ID_VIEW_WORKSPACE               32791
@@ -61,14 +65,17 @@
 #define ID_VIEW_ZOOM                    32877
 #define ID_VIEW_ATTRIBUTES              32878
 #define ID_COMBO_SNAP                   32879
+#define ID_BUTTON32880                  32880
+#define ID_BUTTON32881                  32881
+#define ID_BUTTON32882                  32882
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        171
-#define _APS_NEXT_COMMAND_VALUE         32880
-#define _APS_NEXT_CONTROL_VALUE         1052
-#define _APS_NEXT_SYMED_VALUE           120
+#define _APS_NEXT_RESOURCE_VALUE        174
+#define _APS_NEXT_COMMAND_VALUE         32883
+#define _APS_NEXT_CONTROL_VALUE         1053
+#define _APS_NEXT_SYMED_VALUE           121
 #endif
 #endif

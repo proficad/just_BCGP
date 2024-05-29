@@ -30,6 +30,45 @@ Panel_Pages::Panel_Pages()
 
 }
 
+void Panel_Pages::AdjustLayout()
+{
+	CRect rectClient;
+	GetClientRect(rectClient);
+
+	const int cyTlb = m_wndToolBar.CalcFixedLayout(FALSE, TRUE).cy;
+
+	if (m_wndToolBar.GetSafeHwnd() != NULL)
+	{
+		m_wndToolBar.SetWindowPos(NULL, 0, 0, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
+	}
+
+	m_wndTree.SetWindowPos(NULL, 0, cyTlb, rectClient.Width(), rectClient.Height() - cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
+
+}
+
+void Panel_Pages::Create_Toolbar()
+{
+	// Create toolbar:
+	if (!m_wndToolBar.Create(this, dwDefaultToolbarStyle, AFX_IDW_TOOLBAR + 1) ||
+		!m_wndToolBar.LoadToolBar(IDR_TOOLBAR_PAGES, 0, 0, TRUE /* Is locked */, 0, 0, 0))
+	{
+		TRACE0("Failed to create toolbar\n");
+		return; // fail to create
+	}
+
+
+	m_wndToolBar.SetBarStyle(m_wndToolBar.GetBarStyle() | CBRS_TOOLTIPS | CBRS_FLYBY);
+
+	m_wndToolBar.SetBarStyle(
+		m_wndToolBar.GetBarStyle() &
+		~(CBRS_GRIPPER | CBRS_SIZE_DYNAMIC | CBRS_BORDER_TOP | CBRS_BORDER_BOTTOM | CBRS_BORDER_LEFT | CBRS_BORDER_RIGHT));
+
+	m_wndToolBar.SetOwner(this);
+
+	// All commands will be routed via this control , not via the parent frame:
+	m_wndToolBar.SetRouteCommandsViaFrame(FALSE);
+}
+
 Panel_Pages::~Panel_Pages()
 {
 }
@@ -43,7 +82,8 @@ int Panel_Pages::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	if (CBCGPDockingControlBar::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	
+	Create_Toolbar();
+
 	CRect rectDummy;
 	rectDummy.SetRectEmpty();
 
@@ -74,4 +114,11 @@ void Panel_Pages::OnSize(UINT nType, int cx, int cy)
 
 	// Tree control should cover a whole client area:
 	m_wndTree.SetWindowPos(NULL, 0, 0, cx, cy, SWP_NOACTIVATE | SWP_NOZORDER);
+}
+
+void Toolbar_Pages::AdjustLayout()
+{
+	CBCGPToolBar::AdjustLayout();
+
+	((Panel_Pages*)GetParent())->AdjustLayout();
 }

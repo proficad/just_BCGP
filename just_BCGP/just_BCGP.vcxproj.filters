@@ -40,6 +40,9 @@
     <ClCompile Include="panels\Panel_Pages.cpp">
       <Filter>panels</Filter>
     </ClCompile>
+    <ClCompile Include="panels\Panel_Layers.cpp">
+      <Filter>panels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -84,6 +87,9 @@
     <ClInclude Include="panels\Panel_Pages.h">
       <Filter>panels</Filter>
     </ClInclude>
+    <ClInclude Include="panels\Panel_Layers.h">
+      <Filter>panels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\just_BCGP.ico">
@@ -108,6 +114,9 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\tools_page2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolbar1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

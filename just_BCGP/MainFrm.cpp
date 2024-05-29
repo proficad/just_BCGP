@@ -89,6 +89,21 @@ int CMainFrame::Create_Panel_Pages()
 }
 
 
+int CMainFrame::Create_Panel_Layers()
+{
+	const int nPaneSize = globalUtils.ScaleByDPI(200, this);
+
+	if (!m_panel_layers.Create(_T("layers"), this, CRect(0, 0, nPaneSize, nPaneSize),
+		TRUE, ID_VIEW_PANEL_LAYERS,
+		WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | CBRS_LEFT | CBRS_FLOAT_MULTI))
+	{
+		TRACE0("Failed to create panel layers\n");
+		return -1;      // fail to create
+	}
+
+	return 0;
+}
+
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CBCGPFrameWnd::OnCreate(lpCreateStruct) == -1)
@@ -183,6 +198,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	if(-1 == Create_Panel_Symbols())	{		return FALSE;	}
 	if(-1 == Create_Panel_Pages())	{		return FALSE;	}
+	if(-1 == Create_Panel_Layers())	{		return FALSE;	}
 
 
 	CString strMainToolbarTitle;
@@ -197,10 +213,12 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_panel_symbols.EnableDocking(CBRS_ALIGN_ANY);
 	m_panel_pages.EnableDocking(CBRS_ALIGN_ANY);
+	m_panel_layers.EnableDocking(CBRS_ALIGN_ANY);
 
 	m_wndOutput.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndPropGrid.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndToolBox.EnableDocking(CBRS_ALIGN_ANY);
+
 	EnableDocking(CBRS_ALIGN_ANY);
 	EnableAutoHideBars(CBRS_ALIGN_ANY);
 	DockControlBar(&m_wndMenuBar);
@@ -210,6 +228,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	DockControlBar(&m_panel_symbols);
 	DockControlBar(&m_panel_pages);
+	DockControlBar(&m_panel_layers);
 
 	DockControlBar(&m_wndOutput);
 	DockControlBar(&m_wndPropGrid);

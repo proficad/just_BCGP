@@ -100,6 +100,27 @@ BEGIN
     0
 END
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_TOOLBAR_PAGES       BITMAP                  "res\\toolbar1.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_TOOLBAR_PAGES TOOLBAR 16, 15
+BEGIN
+    BUTTON      ID_BUTTON32880
+    BUTTON      ID_BUTTON32881
+    BUTTON      ID_BUTTON32882
+END
+
 #endif    // Czech (Czech Republic) resources
 /////////////////////////////////////////////////////////////////////////////
 
@@ -116,16 +137,17 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 // Dialog
 //
 
-IDD_ABOUTBOX DIALOGEX 0, 0, 235, 55
+IDD_ABOUTBOX DIALOGEX 0, 0, 572, 249
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "About just_BCGP"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,21,20
+    ICON            IDR_MAINFRAME,IDC_STATIC,7,7,20,20
     LTEXT           "just_BCGP Version 1.0",IDC_STATIC,40,10,119,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2023",IDC_STATIC,40,25,119,8
-    DEFPUSHBUTTON   "OK",IDOK,178,7,50,16,WS_GROUP
+    DEFPUSHBUTTON   "OK",IDOK,515,7,50,16,WS_GROUP
     PUSHBUTTON      "http://www.<MyCompany>.com",IDC_COMPANY_URL,40,36,119,14
+    LTEXT           "Static",IDC_HINT_COUPON,276,16,227,155
 END
 
 IDD_DIALOGBAR DIALOGEX 0, 0, 102, 129
@@ -149,9 +171,9 @@ BEGIN
     IDD_ABOUTBOX, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 228
+        RIGHTMARGIN, 565
         TOPMARGIN, 7
-        BOTTOMMARGIN, 48
+        BOTTOMMARGIN, 242
     END
 
     IDD_DIALOGBAR, DIALOG
@@ -163,14 +185,13 @@ END
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Icon
+// AFX_DIALOG_LAYOUT
 //
 
-// Icon with lowest ID value placed first to ensure application icon
-// remains consistent on all systems.
-IDR_MAINFRAME           ICON                    "RES\\just_BCGP.ico"
-
-IDR_justBCGPTYPE        ICON                    "RES\\just_BCGPDoc.ico"
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -179,20 +200,6 @@ IDR_justBCGPTYPE        ICON                    "RES\\just_BCGPDoc.ico"
 //
 
 IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// PNG
-//
-
-IDB_TOOLBAR_HC          PNG                     "res\\Toolbar.png"
-
-IDB_WORKSPACE           PNG                     "res\\Workspace.png"
-
-IDB_TOOLS_PAGE1         PNG                     "res\\tools_page1.png"
-
-IDB_TOOLS_PAGE2         PNG                     "res\\tools_page2.png"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -239,6 +246,32 @@ BEGIN
     BUTTON      ID_WINDOW_TILE_VERT
     BUTTON      ID_FILE_OPTIONS
 END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "RES\\just_BCGP.ico"
+
+IDR_justBCGPTYPE        ICON                    "RES\\just_BCGPDoc.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+IDB_TOOLBAR_HC          PNG                     "res\\Toolbar.png"
+
+IDB_WORKSPACE           PNG                     "res\\Workspace.png"
+
+IDB_TOOLS_PAGE1         PNG                     "res\\tools_page1.png"
+
+IDB_TOOLS_PAGE2         PNG                     "res\\tools_page2.png"
 
 
 /////////////////////////////////////////////////////////////////////////////

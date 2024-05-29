@@ -8,6 +8,7 @@
 #include "OutputBar.h"
 #include "PropertiesViewBar.h"
 #include "ToolBox.h"
+#include "panels/Panel_Layers.h"
 #include "panels/Panel_Pages.h"
 #include "panels/Panel_Symbols.h"
 
@@ -49,6 +50,7 @@ protected:  // control bar embedded members
 
 	Panel_Symbols			m_panel_symbols;
 	Panel_Pages				m_panel_pages;
+	Panel_Layers			m_panel_layers;
 
 	COutputBar				m_wndOutput;
 	CBCGPPropBar			m_wndPropGrid;
@@ -59,6 +61,7 @@ protected:  // control bar embedded members
 
 	int Create_Panel_Symbols();
 	int Create_Panel_Pages();
+	int Create_Panel_Layers();
 
 // Generated message map functions
 protected:

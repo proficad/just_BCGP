@@ -1,4 +1,4 @@
-// just_BCGP.cpp : Defines the class behaviors for the application.
+﻿// just_BCGP.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -158,6 +158,18 @@ class CAboutDlg : public CBCGPDialog
 public:
 	CAboutDlg();
 
+	LRESULT OnClickInfoBoxLink(WPARAM wp, LPARAM lp);
+
+	BOOL OnInitDialog()
+	{
+		CBCGPDialog::OnInitDialog();
+		m_wndInfoBox.m_bHyperlinks = TRUE;
+		const CString ls_text = L"Here is the link: <a href=\"https://bcgsoft.com/\">link</a>";
+		m_wndInfoBox.SetWindowText(ls_text);
+
+		return TRUE;
+	}
+
 // Dialog Data
 #ifdef AFX_DESIGN_TIME
 	enum { IDD = IDD_ABOUTBOX };
@@ -166,6 +178,7 @@ public:
 
 protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
+	CBCGPInfoBoxCtrl	m_wndInfoBox;
 
 // Implementation
 protected:
@@ -177,13 +190,17 @@ CAboutDlg::CAboutDlg() : CBCGPDialog(IDD_ABOUTBOX)
 	EnableVisualManagerStyle(TRUE, TRUE);
 }
 
+
+
 void CAboutDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CBCGPDialog::DoDataExchange(pDX);
 	DDX_Control(pDX, IDC_COMPANY_URL, m_btnURL);
+	DDX_Control(pDX, IDC_HINT_COUPON, m_wndInfoBox);
 }
 
 BEGIN_MESSAGE_MAP(CAboutDlg, CBCGPDialog)
+	ON_REGISTERED_MESSAGE(BCGM_INFOBOX_LINK_CLICKED, OnClickInfoBoxLink)
 END_MESSAGE_MAP()
 
 // App command to run the dialog
@@ -192,6 +209,33 @@ void Cjust_BCGPApp::OnAppAbout()
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
 }
+
+LRESULT CAboutDlg::OnClickInfoBoxLink(WPARAM wp, LPARAM lp)
+{
+	if (wp == IDC_HINT_COUPON)
+	{
+		CString strURL;
+		if (lp != 0L)
+		{
+			strURL = (LPCTSTR)lp;
+		}
+
+		if (strURL.IsEmpty())
+		{
+			BCGPMessageBox(_T("InfoBox default link was clicked..."));
+		}
+		else
+		{
+			CString str;
+			str.Format(_T("InfoBox link \"%s\" was clicked"), (LPCTSTR)strURL);
+
+			BCGPMessageBox(str);
+		}
+	}
+
+	return 0L;
+}
+
 
 
 // Cjust_BCGPApp message handlers
