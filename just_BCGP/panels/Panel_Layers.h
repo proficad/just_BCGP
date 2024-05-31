@@ -3,12 +3,13 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #pragma once
+#include "Panel_With_Preview.h"
 
-class Panel_Layers : public CBCGPDockingControlBar
+class Panel_Layers : public QPanel_With_Preview
 {
 public:
 	Panel_Layers();
-
+	void ShowPreview(int ai_index) override;
 // Attributes
 protected:
 	CBCGPTreeCtrl m_wndTree;

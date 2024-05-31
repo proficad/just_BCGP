@@ -8,6 +8,7 @@
 #include "just_BCGPView.h"
 
 #include "QDlgAttributes.h"
+#include "QDlgListBox.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -27,6 +28,7 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPView, CView)
 	ON_MESSAGE(WM_PRINTCLIENT, &Cjust_BCGPView::OnPrintClient)
 
 	ON_COMMAND(ID_VIEW_ATTRIBUTES, &Cjust_BCGPView::OnViewAttributes)
+	ON_COMMAND(ID_VIEW_LISTBOX, &Cjust_BCGPView::OnViewListBox)
 END_MESSAGE_MAP()
 
 // Cjust_BCGPView construction/destruction
@@ -136,5 +138,11 @@ void Cjust_BCGPView::OnContextMenu(CWnd*, CPoint point)
 void Cjust_BCGPView::OnViewAttributes()
 {
 	QDlgAttributes l_dlg;
+	l_dlg.DoModal();
+}
+
+void Cjust_BCGPView::OnViewListBox()
+{
+	QDlgListBox l_dlg;
 	l_dlg.DoModal();
 }

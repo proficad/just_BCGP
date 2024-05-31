@@ -43,6 +43,15 @@
     <ClCompile Include="panels\Panel_Layers.cpp">
       <Filter>panels</Filter>
     </ClCompile>
+    <ClCompile Include="panels\Panel_With_Preview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="panels\QListBoxPages.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QDlgListBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -89,6 +98,18 @@
     </ClInclude>
     <ClInclude Include="panels\Panel_Layers.h">
       <Filter>panels</Filter>
+    </ClInclude>
+    <ClInclude Include="panels\Panel_With_Preview.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="panels\QDlgPagePreview.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="panels\QListBoxPages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QDlgListBox.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

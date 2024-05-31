@@ -28,6 +28,8 @@ void QDlgAttributes::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(QDlgAttributes, CDialog)
+	ON_NOTIFY(NM_CLICK, (UINT)-1, OnNMClick)
+	ON_WM_RBUTTONDOWN()
 END_MESSAGE_MAP()
 
 
@@ -85,4 +87,36 @@ BOOL QDlgAttributes::OnInitDialog()
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
+}
+
+
+void QDlgAttributes::OnRButtonDown(UINT nFlags, CPoint point)
+{
+
+	CDialog::OnRButtonDown(nFlags, point);
+}
+
+void QDlgAttributes::OnNMClick(NMHDR* pNMHDR, LRESULT* pResult)
+{
+	ShowContextMenu();
+
+}
+
+void QDlgAttributes::ShowContextMenu()
+{
+	CMenu menu;
+	menu.LoadMenu(IDR_CONTEXT_MENU);
+
+	CMenu* pPopup = menu.GetSubMenu(0);
+	ASSERT(pPopup != NULL);
+
+	CWnd* pWndPopupOwner = this;
+
+	if (pWndPopupOwner != NULL)
+	{
+		CPoint pt;
+		::GetCursorPos(&pt);
+
+		pPopup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, pt.x, pt.y, pWndPopupOwner);
+	}
 }

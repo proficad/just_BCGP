@@ -46,6 +46,11 @@ void Panel_Pages::AdjustLayout()
 
 }
 
+void Panel_Pages::ShowPreview(int ai_index)
+{
+
+}
+
 void Panel_Pages::Create_Toolbar()
 {
 	// Create toolbar:
@@ -79,7 +84,7 @@ Panel_Pages::~Panel_Pages()
 
 int Panel_Pages::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CBCGPDockingControlBar::OnCreate(lpCreateStruct) == -1)
+	if (QPanel_With_Preview::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
 	Create_Toolbar();
@@ -110,7 +115,7 @@ int Panel_Pages::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void Panel_Pages::OnSize(UINT nType, int cx, int cy)
 {
-	CBCGPDockingControlBar::OnSize(nType, cx, cy);
+	QPanel_With_Preview::OnSize(nType, cx, cy);
 
 	// Tree control should cover a whole client area:
 	m_wndTree.SetWindowPos(NULL, 0, 0, cx, cy, SWP_NOACTIVATE | SWP_NOZORDER);

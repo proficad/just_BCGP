@@ -46,6 +46,10 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnViewAttributes();
+	afx_msg void OnViewListBox();
+
+
+
 };
 
 #ifndef _DEBUG  // debug version in just_BCGPView.cpp

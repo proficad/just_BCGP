@@ -30,6 +30,11 @@ Panel_Layers::Panel_Layers()
 
 }
 
+void Panel_Layers::ShowPreview(int ai_index)
+{
+
+}
+
 Panel_Layers::~Panel_Layers()
 {
 }
@@ -40,7 +45,7 @@ Panel_Layers::~Panel_Layers()
 
 int Panel_Layers::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CBCGPDockingControlBar::OnCreate(lpCreateStruct) == -1)
+	if (QPanel_With_Preview::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
 	
@@ -70,7 +75,7 @@ int Panel_Layers::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void Panel_Layers::OnSize(UINT nType, int cx, int cy)
 {
-	CBCGPDockingControlBar::OnSize(nType, cx, cy);
+	QPanel_With_Preview::OnSize(nType, cx, cy);
 
 	// Tree control should cover a whole client area:
 	m_wndTree.SetWindowPos(NULL, 0, 0, cx, cy, SWP_NOACTIVATE | SWP_NOZORDER);

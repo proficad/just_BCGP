@@ -9,6 +9,7 @@
 #define ID_VIEW_PANEL_SYMBOLS           118
 #define ID_VIEW_PANEL_PAGES             119
 #define ID_VIEW_PANEL_LAYERS            120
+#define IDD_QDlgListBox                 121
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -26,6 +27,8 @@
 #define IDC_CHECK_DLGBAR                1050
 #define MY_GRID                         1051
 #define IDC_HINT_COUPON                 1052
+#define IDC_LIST1                       1053
+#define IDC_LIST2                       1054
 #define ID_VIEW_CUSTOMIZE               32770
 #define ID_VIEW_TOOLBARS                32771
 #define ID_VIEW_WORKSPACE               32791
@@ -68,14 +71,15 @@
 #define ID_BUTTON32880                  32880
 #define ID_BUTTON32881                  32881
 #define ID_BUTTON32882                  32882
+#define ID_VIEW_LISTBOX                 32883
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        174
-#define _APS_NEXT_COMMAND_VALUE         32883
-#define _APS_NEXT_CONTROL_VALUE         1053
-#define _APS_NEXT_SYMED_VALUE           121
+#define _APS_NEXT_RESOURCE_VALUE        175
+#define _APS_NEXT_COMMAND_VALUE         32884
+#define _APS_NEXT_CONTROL_VALUE         1055
+#define _APS_NEXT_SYMED_VALUE           122
 #endif
 #endif

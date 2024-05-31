@@ -3,6 +3,7 @@
 /////////////////////////////////////////////////////////////////////////////
 
 #pragma once
+#include "Panel_With_Preview.h"
 
 class Toolbar_Pages : public CBCGPToolBar
 {
@@ -19,11 +20,12 @@ public:
 };
 
 
-class Panel_Pages : public CBCGPDockingControlBar
+class Panel_Pages : public QPanel_With_Preview
 {
 public:
 	Panel_Pages();
 	virtual void AdjustLayout();
+	void ShowPreview(int ai_index) override;
 
 // Attributes
 protected:
