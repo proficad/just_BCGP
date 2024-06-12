@@ -9,12 +9,12 @@
 
 // QDlgAttributes dialog
 
-IMPLEMENT_DYNAMIC(QDlgAttributes, CDialog)
+IMPLEMENT_DYNAMIC(QDlgAttributes, CBCGPDialog)
 
 QDlgAttributes::QDlgAttributes(CWnd* pParent /*=nullptr*/)
-	: CDialog(IDD_QDlgAttributes, pParent)
+	: CBCGPDialog(IDD_QDlgAttributes, pParent)
 {
-
+	EnableLayout();
 }
 
 QDlgAttributes::~QDlgAttributes()
@@ -27,7 +27,7 @@ void QDlgAttributes::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(QDlgAttributes, CDialog)
+BEGIN_MESSAGE_MAP(QDlgAttributes, CBCGPDialog)
 	ON_NOTIFY(NM_CLICK, (UINT)-1, OnNMClick)
 	ON_WM_RBUTTONDOWN()
 END_MESSAGE_MAP()
@@ -38,7 +38,10 @@ END_MESSAGE_MAP()
 
 BOOL QDlgAttributes::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CBCGPDialog::OnInitDialog();
+
+
+	Resize_Dialog();
 
 	CWaitCursor wait;
 
@@ -93,7 +96,7 @@ BOOL QDlgAttributes::OnInitDialog()
 void QDlgAttributes::OnRButtonDown(UINT nFlags, CPoint point)
 {
 
-	CDialog::OnRButtonDown(nFlags, point);
+	CBCGPDialog::OnRButtonDown(nFlags, point);
 }
 
 void QDlgAttributes::OnNMClick(NMHDR* pNMHDR, LRESULT* pResult)
@@ -118,5 +121,17 @@ void QDlgAttributes::ShowContextMenu()
 		::GetCursorPos(&pt);
 
 		pPopup->TrackPopupMenu(TPM_LEFTALIGN | TPM_RIGHTBUTTON, pt.x, pt.y, pWndPopupOwner);
+	}
+}
+
+void QDlgAttributes::Resize_Dialog()
+{
+	CBCGPStaticLayout* pLayout = (CBCGPStaticLayout*)GetLayout();
+	if (pLayout != nullptr)
+	{
+		pLayout->AddAnchor(IDOK, CBCGPStaticLayout::e_MoveTypeBoth, CBCGPStaticLayout::e_SizeTypeNone);
+		pLayout->AddAnchor(IDCANCEL, CBCGPStaticLayout::e_MoveTypeBoth, CBCGPStaticLayout::e_SizeTypeNone);
+		
+		pLayout->AddAnchor(MY_GRID, CBCGPStaticLayout::e_MoveTypeNone, CBCGPStaticLayout::e_SizeTypeBoth);
 	}
 }

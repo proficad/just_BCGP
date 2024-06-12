@@ -4,7 +4,7 @@
 
 // QDlgListBox dialog
 
-class QDlgListBox : public CDialog
+class QDlgListBox : public CBCGPDialog
 {
 	DECLARE_DYNAMIC(QDlgListBox)
 	afx_msg void OnRClick(NMHDR* pNMHDR, LRESULT* pResult);

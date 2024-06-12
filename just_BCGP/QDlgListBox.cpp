@@ -9,7 +9,7 @@
 
 // QDlgListBox dialog
 
-IMPLEMENT_DYNAMIC(QDlgListBox, CDialog)
+IMPLEMENT_DYNAMIC(QDlgListBox, CBCGPDialog)
 
 void QDlgListBox::OnRClick(NMHDR* pNMHDR, LRESULT* pResult)
 {
@@ -17,7 +17,7 @@ void QDlgListBox::OnRClick(NMHDR* pNMHDR, LRESULT* pResult)
 }
 
 QDlgListBox::QDlgListBox(CWnd* pParent /*=nullptr*/)
-	: CDialog(IDD_QDlgListBox, pParent)
+	: CBCGPDialog(IDD_QDlgListBox, pParent)
 {
 
 }
@@ -57,7 +57,7 @@ void QDlgListBox::DoDataExchange(CDataExchange* pDX)
 }
 
 
-BEGIN_MESSAGE_MAP(QDlgListBox, CDialog)
+BEGIN_MESSAGE_MAP(QDlgListBox, CBCGPDialog)
 	ON_NOTIFY(NM_RCLICK, IDC_LIST2, OnRClick)
 END_MESSAGE_MAP()
 
@@ -67,7 +67,7 @@ END_MESSAGE_MAP()
 
 BOOL QDlgListBox::OnInitDialog()
 {
-	CDialog::OnInitDialog();
+	CBCGPDialog::OnInitDialog();
 
 	Fill_List_Box();
 
@@ -92,5 +92,5 @@ void QDlgListBox::ShowContextMenu()
 
 
 
-	GetWorkspace()->GetContextMenuManager()->ShowPopupMenu(l_menu, l_point.x, l_point.y, this);
+	GetWorkspace()->GetContextMenuManager()->ShowPopupMenu(l_menu, l_point.x, l_point.y, GetParent());
 }

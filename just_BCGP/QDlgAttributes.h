@@ -11,7 +11,7 @@ public:
 };
 
 
-class QDlgAttributes : public CDialog
+class QDlgAttributes : public CBCGPDialog
 {
 	DECLARE_DYNAMIC(QDlgAttributes)
 
@@ -38,4 +38,5 @@ public:
 
 private:
 	void ShowContextMenu();
+	void Resize_Dialog();
 };
