@@ -110,6 +110,10 @@ BOOL Cjust_BCGPApp::InitInstance()
 
 	SetRegistryBase(_T("Settings"));
 
+
+
+
+
 	// Initialize all Managers for usage. They are automatically constructed
 	// if not yet present
 	// Register the application's document templates.  Document templates

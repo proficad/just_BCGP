@@ -41,11 +41,11 @@ BOOL QDlgAttributes::OnInitDialog()
 	CBCGPDialog::OnInitDialog();
 
 
-	Resize_Dialog();
 
 	CWaitCursor wait;
 
-	m_wndGrid.CreateOnPlaceHolder(this, MY_GRID, (UINT)-1, WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_BORDER);
+	m_wndGrid.CreateOnPlaceHolder(this, MY_GRID, MY_GRID, WS_CHILD | WS_VISIBLE | WS_TABSTOP | WS_BORDER, TRUE /* Destroy placeholder */);
+	Resize_Dialog();
 	m_wndGrid.EnableHeader(TRUE, BCGP_GRID_HEADER_MOVE_ITEMS);
 	m_wndGrid.EnableInvertSelOnCtrl();
 

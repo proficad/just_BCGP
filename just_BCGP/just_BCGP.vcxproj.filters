@@ -52,6 +52,9 @@
     <ClCompile Include="QDlgListBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="panels\QListBoxWithKeyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainFrm.h">
@@ -109,6 +112,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="QDlgListBox.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="panels\QListBoxWithKeyboard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

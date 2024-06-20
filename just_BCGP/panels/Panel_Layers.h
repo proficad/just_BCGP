@@ -4,6 +4,7 @@
 
 #pragma once
 #include "Panel_With_Preview.h"
+#include "QListBoxWithKeyboard.h"
 
 class Panel_Layers : public QPanel_With_Preview
 {
@@ -12,7 +13,7 @@ public:
 	void ShowPreview(int ai_index) override;
 // Attributes
 protected:
-	CBCGPTreeCtrl m_wndTree;
+	QListBoxWithKeyboard m_list;
 
 // Operations
 public:

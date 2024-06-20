@@ -173,13 +173,14 @@ BEGIN
     LTEXT           "Static",IDC_HINT_COUPON,276,16,227,155
 END
 
-IDD_DIALOGBAR DIALOGEX 0, 0, 102, 129
+IDD_DIALOGBAR DIALOGEX 0, 0, 102, 148
 STYLE DS_SETFONT | WS_CHILD | WS_VISIBLE | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
 FONT 8, "MS Sans Serif", 0, 0, 0x0
 BEGIN
-    LISTBOX         IDC_LIST_DLGBAR,7,21,88,73,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_DLGBAR,7,42,88,73,LBS_SORT | LBS_OWNERDRAWFIXED | LBS_HASSTRINGS | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
     LTEXT           "Dialog bar",IDC_STATIC_DLGBAR,7,7,44,8
-    CONTROL         "CheckBox",IDC_CHECK_DLGBAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,112,49,10
+    CONTROL         "CheckBox",IDC_CHECK_DLGBAR,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,7,133,49,10
+    EDITTEXT        IDC_EDIT1,9,23,86,14,ES_AUTOHSCROLL
 END
 
 
@@ -201,6 +202,7 @@ BEGIN
 
     IDD_DIALOGBAR, DIALOG
     BEGIN
+        BOTTOMMARGIN, 129
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -212,6 +214,11 @@ END
 //
 
 IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DIALOGBAR AFX_DIALOG_LAYOUT
 BEGIN
     0
 END
@@ -340,8 +347,8 @@ BEGIN
             MENUITEM "",                            ID_VIEW_APPLOOK
         END
         MENUITEM "Zoom",                        ID_COMBO_ZOOM
-        MENUITEM "Attributes",                  ID_VIEW_ATTRIBUTES
-        MENUITEM "ListBox",                     ID_VIEW_LISTBOX
+        MENUITEM "Attributes\tA",               ID_VIEW_ATTRIBUTES
+        MENUITEM "ListBox\tL",                  ID_VIEW_LISTBOX
     END
     POPUP "&Help"
     BEGIN
@@ -391,20 +398,21 @@ END
 
 IDR_MAINFRAME ACCELERATORS
 BEGIN
-    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL
-    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL
-    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL
-    "P",            ID_FILE_PRINT,          VIRTKEY, CONTROL
-    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL
-    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL
-    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL
-    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL
-    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT
-    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT
-    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL
-    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT
-    VK_F6,          ID_NEXT_PANE,           VIRTKEY 
-    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, CONTROL, NOINVERT
+    "L",            ID_FILE_PRINT,          VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_FILE_SAVE,           VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    "A",            ID_VIEW_ATTRIBUTES,     VIRTKEY, CONTROL, NOINVERT
 END
 
 

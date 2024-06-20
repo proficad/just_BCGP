@@ -10,6 +10,7 @@
 #define ID_VIEW_PANEL_PAGES             119
 #define ID_VIEW_PANEL_LAYERS            120
 #define IDD_QDlgListBox                 121
+#define IDC_LIST_OF_OBJECTS             122
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -29,6 +30,7 @@
 #define IDC_HINT_COUPON                 1052
 #define IDC_LIST1                       1053
 #define IDC_LIST2                       1054
+#define IDC_EDIT1                       1055
 #define ID_VIEW_CUSTOMIZE               32770
 #define ID_VIEW_TOOLBARS                32771
 #define ID_VIEW_WORKSPACE               32791
@@ -77,9 +79,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        175
-#define _APS_NEXT_COMMAND_VALUE         32884
-#define _APS_NEXT_CONTROL_VALUE         1055
-#define _APS_NEXT_SYMED_VALUE           122
+#define _APS_NEXT_RESOURCE_VALUE        176
+#define _APS_NEXT_COMMAND_VALUE         32887
+#define _APS_NEXT_CONTROL_VALUE         1056
+#define _APS_NEXT_SYMED_VALUE           123
 #endif
 #endif

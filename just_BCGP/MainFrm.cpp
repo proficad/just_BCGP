@@ -114,6 +114,16 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	// Menu will not take the focus on activation:
 	CBCGPPopupMenu::SetForceMenuFocus(FALSE);
 
+	const BOOL lb_destroyed = DestroyAcceleratorTable(m_hAccelTable);
+	if (lb_destroyed)
+	{
+		HINSTANCE hInst = AfxGetResourceHandle();
+		HACCEL l_accel = LoadAccelerators(hInst, MAKEINTRESOURCE(IDR_MAINFRAME));
+		m_hAccelTable = l_accel;
+		DrawMenuBar();
+	}
+
+
 	if (!m_wndMenuBar.Create(this))
 	{
 		TRACE0("Failed to create menubar\n");
