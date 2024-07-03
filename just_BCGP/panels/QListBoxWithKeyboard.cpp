@@ -9,7 +9,7 @@
 
 // QListBoxWithKeyboard
 
-IMPLEMENT_DYNAMIC(QListBoxWithKeyboard, CListBox)
+IMPLEMENT_DYNAMIC(QListBoxWithKeyboard, CBCGPListBox)
 
 QListBoxWithKeyboard::QListBoxWithKeyboard()
 {
@@ -21,7 +21,7 @@ QListBoxWithKeyboard::~QListBoxWithKeyboard()
 }
 
 
-BEGIN_MESSAGE_MAP(QListBoxWithKeyboard, CListBox)
+BEGIN_MESSAGE_MAP(QListBoxWithKeyboard, CBCGPListBox)
 	ON_WM_KEYDOWN()
 //	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()

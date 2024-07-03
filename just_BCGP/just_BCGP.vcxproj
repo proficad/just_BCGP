@@ -256,6 +256,7 @@
   <ItemGroup>
     <Image Include="res\just_BCGP.ico" />
     <Image Include="res\just_BCGPDoc.ico" />
+    <Image Include="res\mainfram.bmp" />
     <Image Include="res\Toolbar.bmp" />
     <Image Include="res\Toolbar.png" />
     <Image Include="res\toolbar1.bmp" />

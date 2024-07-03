@@ -19,6 +19,8 @@ static char THIS_FILE[] = __FILE__;
 BEGIN_MESSAGE_MAP(Panel_Symbols, CBCGPDockingControlBar)
 	ON_WM_CREATE()
 	ON_WM_SIZE()
+	ON_COMMAND(ID_BTN_SEARCH_SYMBOLS, On_Search_Symbols)
+	ON_UPDATE_COMMAND_UI(ID_BTN_SEARCH_SYMBOLS, On_Update_Search_Symbols)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -29,6 +31,7 @@ Panel_Symbols::Panel_Symbols()
 	// TODO: add one-time construction code here
 
 }
+
 
 Panel_Symbols::~Panel_Symbols()
 {
@@ -46,6 +49,22 @@ int Panel_Symbols::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	
 	CRect rectDummy;
 	rectDummy.SetRectEmpty();
+
+
+	m_btn_search.m_bVisualManagerStyle = TRUE;
+
+	if (!m_btn_search.Create(
+		L"Search",
+		WS_CHILD | WS_VISIBLE,
+		rectDummy,
+		this,
+		ID_BTN_SEARCH_SYMBOLS
+	))
+	{
+		TRACE(_T("could not create button symbol search\n"));
+		return -1;
+	}
+
 
 	// Create tree control:
 	const DWORD dwViewStyle =	WS_CHILD | WS_VISIBLE | TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS | TVS_SHOWSELALWAYS;
@@ -72,6 +91,44 @@ void Panel_Symbols::OnSize(UINT nType, int cx, int cy)
 {
 	CBCGPDockingControlBar::OnSize(nType, cx, cy);
 
+
+	const int li_left = 1;
+	int li_padding = 0;
+
+
+
+	int nTop = 0;
+	int li_height = 50;
+	const int li_whoKnowsWhy = 10;
+
+
+
+
+
+	if (m_btn_search.GetSafeHwnd())
+	{
+		m_btn_search.MoveWindow(li_left + li_padding,
+			nTop + li_padding,
+			cx - (2 * li_left) - (2 * li_padding),
+			nTop + li_height);
+
+		nTop += li_height + (3 * li_padding);
+	}
+
+
 	// Tree control should cover a whole client area:
-	m_wndTree.SetWindowPos(NULL, 0, 0, cx, cy, SWP_NOACTIVATE | SWP_NOZORDER);
+	m_wndTree.MoveWindow(li_left + li_padding,
+		nTop + li_padding,
+		cx - (2 * li_left) - (2 * li_padding),
+		nTop + li_height);
+}
+
+void Panel_Symbols::On_Search_Symbols()
+{
+
+}
+
+void Panel_Symbols::On_Update_Search_Symbols(CCmdUI* pCmdUI)
+{
+	pCmdUI->Enable(TRUE);
 }

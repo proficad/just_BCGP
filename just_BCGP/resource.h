@@ -11,6 +11,7 @@
 #define ID_VIEW_PANEL_LAYERS            120
 #define IDD_QDlgListBox                 121
 #define IDC_LIST_OF_OBJECTS             122
+#define ID_BTN_SEARCH_SYMBOLS           123
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -22,6 +23,7 @@
 #define IDD_DIALOGBAR                   169
 #define IDR_TOOLBAR1                    171
 #define IDR_TOOLBAR_PAGES               171
+#define IDR_MAINFRAME_DARK              176
 #define IDC_COMPANY_URL                 1041
 #define IDC_LIST_DLGBAR                 1048
 #define IDC_STATIC_DLGBAR               1049
@@ -74,14 +76,15 @@
 #define ID_BUTTON32881                  32881
 #define ID_BUTTON32882                  32882
 #define ID_VIEW_LISTBOX                 32883
+#define ID_VIEW_DARK_MODE               32887
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        176
-#define _APS_NEXT_COMMAND_VALUE         32887
+#define _APS_NEXT_RESOURCE_VALUE        177
+#define _APS_NEXT_COMMAND_VALUE         32888
 #define _APS_NEXT_CONTROL_VALUE         1056
-#define _APS_NEXT_SYMED_VALUE           123
+#define _APS_NEXT_SYMED_VALUE           124
 #endif
 #endif

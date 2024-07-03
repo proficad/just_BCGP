@@ -35,7 +35,15 @@ public:
 	afx_msg void OnAppAbout();
 	afx_msg void OnFileNewFrame();
 	afx_msg void OnFileNew();
+	afx_msg void OnFileViewDark();
+
+
 	DECLARE_MESSAGE_MAP()
+
+
+private:
+	void Set_Theme_Dark_Or_Light(bool ab_dark);
+	bool m_dark;
 };
 
 extern Cjust_BCGPApp theApp;

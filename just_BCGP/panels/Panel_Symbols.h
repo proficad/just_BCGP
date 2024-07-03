@@ -11,7 +11,12 @@ public:
 
 // Attributes
 protected:
+	CBCGPButton m_btn_search;
 	CBCGPTreeCtrl m_wndTree;
+
+	void On_Search_Symbols();
+	void On_Update_Search_Symbols(CCmdUI* pCmdUI);
+
 
 // Operations
 public:

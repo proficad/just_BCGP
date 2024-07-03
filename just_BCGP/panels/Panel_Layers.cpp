@@ -52,8 +52,8 @@ int Panel_Layers::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CRect rectDummy;
 	rectDummy.SetRectEmpty();
 
-
-	m_list.Create(WS_CHILD | WS_VISIBLE | WS_BORDER | WS_HSCROLL | WS_VSCROLL | LBS_HASSTRINGS | LBS_NOTIFY,
+	m_list.m_bVisualManagerStyle = TRUE;
+	m_list.Create(WS_CHILD | WS_VISIBLE | WS_BORDER | WS_HSCROLL | WS_VSCROLL | LBS_HASSTRINGS | LBS_NOTIFY | LBS_OWNERDRAWFIXED,
 		CRect(0, 0, 0, 0), this, IDC_LIST_OF_OBJECTS);
 
 

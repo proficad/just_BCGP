@@ -146,6 +146,9 @@
     <Image Include="res\toolbar1.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="res\mainfram.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="just_BCGP.manifest" />

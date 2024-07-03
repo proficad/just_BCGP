@@ -32,6 +32,8 @@ public:
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 	virtual BOOL LoadFrame(UINT nIDResource, DWORD dwDefaultStyle = WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, CWnd* pParentWnd = NULL, CCreateContext* pContext = NULL);
 
+	void Set_Theme_Dark_Or_Light(bool ab_dark);
+
 // Implementation
 public:
 	virtual ~CMainFrame();

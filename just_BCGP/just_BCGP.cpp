@@ -22,6 +22,9 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPApp, CBCGPWinApp)
 	ON_COMMAND(ID_APP_ABOUT, &Cjust_BCGPApp::OnAppAbout)
 	ON_COMMAND(ID_FILE_NEW_FRAME, &Cjust_BCGPApp::OnFileNewFrame)
 	ON_COMMAND(ID_FILE_NEW, &Cjust_BCGPApp::OnFileNew)
+
+	ON_COMMAND(ID_VIEW_DARK_MODE, OnFileViewDark)
+
 	// Standard file based document commands
 	ON_COMMAND(ID_FILE_OPEN, &CBCGPWinApp::OnFileOpen)
 	// Standard print setup command
@@ -31,7 +34,7 @@ END_MESSAGE_MAP()
 
 // Cjust_BCGPApp construction
 
-Cjust_BCGPApp::Cjust_BCGPApp()
+Cjust_BCGPApp::Cjust_BCGPApp():m_dark(true)
 {
 
 	// Support Restart Manager
@@ -316,6 +319,32 @@ void Cjust_BCGPApp::OnFileNew()
 		pTemplate->SetDefaultTitle(pDoc);
 		pDoc->OnNewDocument();
 	}
+}
+
+void Cjust_BCGPApp::OnFileViewDark()
+{
+	m_dark = !m_dark;
+	Set_Theme_Dark_Or_Light(m_dark);
+}
+
+void Cjust_BCGPApp::Set_Theme_Dark_Or_Light(bool ab_dark)
+{
+	if (ab_dark)
+	{
+		SetVisualTheme(BCGP_VISUAL_THEME_VS_2019_DARK);
+	}
+	else
+	{
+		SetVisualTheme(BCGP_VISUAL_THEME_OFFICE_2007_BLUE);
+	}
+
+	CMainFrame* pMainFrame = dynamic_cast<CMainFrame*>(m_pMainWnd);
+	if (!pMainFrame)
+	{
+		return;
+	}
+	pMainFrame->Set_Theme_Dark_Or_Light(ab_dark);
+
 }
 
 void Cjust_BCGPApp::PreLoadState()

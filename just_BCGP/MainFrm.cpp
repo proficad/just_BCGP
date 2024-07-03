@@ -347,6 +347,20 @@ void CMainFrame::OnComboSnap()
 	int i = 5;
 }
 
+void CMainFrame::Set_Theme_Dark_Or_Light(bool ab_dark)
+{
+	if (ab_dark)
+	{
+		m_wndToolBar.LoadBitmap(IDR_MAINFRAME_DARK);
+	}
+	else
+	{
+		m_wndToolBar.LoadBitmap(IDR_MAINFRAME);
+	}
+
+	RecalcLayout();
+	RedrawWindow(NULL, NULL, RDW_INVALIDATE | RDW_ERASE | RDW_FRAME | RDW_UPDATENOW | RDW_ALLCHILDREN);
+}
 
 LRESULT CMainFrame::OnDPIChanged(WPARAM wp, LPARAM lp)
 {

@@ -231,6 +231,8 @@ END
 
 IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
 
+IDR_MAINFRAME_DARK      BITMAP                  "res\\mainfram.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -238,6 +240,46 @@ IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
 //
 
 IDR_MAINFRAME TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_FILE_NEW
+    BUTTON      ID_FILE_OPEN_SXE
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_UNDO
+    BUTTON      ID_EDIT_REDO
+    SEPARATOR
+    BUTTON      ID_FILE_PRINT_PREVIEW
+    BUTTON      ID_FILE_PRINT
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_VIEW_COPY_STYLE
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_SOUBOR_EXPORTOVAT
+    BUTTON      ID_SOUBOR_EXPORTOVAT_PDF
+    SEPARATOR
+    BUTTON      ID_VIEW_OTOITSOUSTKUO_90
+    BUTTON      ID_VIEW_OTOITSOUSTKUO_0
+    BUTTON      ID_VIEW_OTOITSOUSTKUO_90m
+    BUTTON      ID_VIEW_OTOITSOUSTKUO_180
+    BUTTON      ID_VIEW_PEVRTITSOUSTKU_VERTIKLN
+    BUTTON      ID_VIEW_PEVRTITSOUSTKU_HORIZONTLN
+    SEPARATOR
+    BUTTON      ID_FIT_PAGE_TO_WIN
+    BUTTON      ID_ZOBRAZIT_ZOOMIN
+    BUTTON      ID_COMBO_ZOOM
+    BUTTON      ID_ZOBRAZIT_ZOOMOUT
+    SEPARATOR
+    BUTTON      ID_COMBO_SNAP
+    BUTTON      ID_RASTER_AUTO
+    SEPARATOR
+    BUTTON      ID_WINDOW_TILE_HORZ
+    BUTTON      ID_WINDOW_TILE_VERT
+    BUTTON      ID_FILE_OPTIONS
+END
+
+IDR_MAINFRAME_DARK TOOLBAR 16, 16
 BEGIN
     BUTTON      ID_FILE_NEW
     BUTTON      ID_FILE_OPEN_SXE
@@ -349,6 +391,7 @@ BEGIN
         MENUITEM "Zoom",                        ID_COMBO_ZOOM
         MENUITEM "Attributes\tA",               ID_VIEW_ATTRIBUTES
         MENUITEM "ListBox\tL",                  ID_VIEW_LISTBOX
+        MENUITEM "Dark Theme",                  ID_VIEW_DARK_MODE
     END
     POPUP "&Help"
     BEGIN
