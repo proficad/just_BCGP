@@ -349,6 +349,8 @@ void CMainFrame::OnComboSnap()
 
 void CMainFrame::Set_Theme_Dark_Or_Light(bool ab_dark)
 {
+	CBCGPToolBar::ResetAllImages(FALSE /* Don't reset size */);
+
 	if (ab_dark)
 	{
 		m_wndToolBar.LoadBitmap(IDR_MAINFRAME_DARK);

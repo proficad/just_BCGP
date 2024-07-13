@@ -88,6 +88,13 @@ BOOL QDlgAttributes::OnInitDialog()
 
 	srand((unsigned)time(NULL));
 
+
+	BOOL lb_result = m_wndGrid.SetCurSel(CBCGPGridItemID(0, 1), SM_SINGLE_ITEM);
+	CBCGPGridRow* pSelRow = m_wndGrid.GetCurSel();
+
+
+
+
 	return TRUE;  // return TRUE unless you set the focus to a control
 	// EXCEPTION: OCX Property Pages should return FALSE
 }
