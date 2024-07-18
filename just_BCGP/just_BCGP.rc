@@ -233,11 +233,40 @@ IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
 
 IDR_MAINFRAME_DARK      BITMAP                  "res\\mainfram.bmp"
 
+IDR_TOOLBAR_SHAPES      BITMAP                  "res\\toolbar_.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Toolbar
 //
+
+IDR_TOOLBAR_SHAPES TOOLBAR 16, 16
+BEGIN
+    BUTTON      ID_DRAW_LINE
+    BUTTON      ID_DRAW_POLYLINE
+    BUTTON      ID_DRAW_ARC_RECT
+    BUTTON      ID_DRAW_ARC_3P
+    BUTTON      ID_DRAW_BEZIER
+    BUTTON      ID_DRAW_RECT
+    BUTTON      ID_DRAW_ROUNDRECT
+    BUTTON      ID_DRAW_ELLIPSE
+    BUTTON      ID_DRAW_CIRCLE
+    BUTTON      ID_DRAW_POLYGON
+    BUTTON      ID_DRAW_CHORD
+    BUTTON      ID_DRAW_PIE
+    BUTTON      ID_DRAW_OUTLET
+    SEPARATOR
+    BUTTON      ID_INSERT_LETTERING
+    BUTTON      ID_INSERT_TEXT
+    SEPARATOR
+    BUTTON      ID_INSERT_SPOJ_ORTHO
+    BUTTON      ID_INSERT_JUNCTION
+    BUTTON      ID_INSERT_HRADLO
+    BUTTON      ID_INSERT_TRAFO
+    SEPARATOR
+    BUTTON      ID_DRAW_SELECT
+END
 
 IDR_MAINFRAME TOOLBAR 16, 16
 BEGIN

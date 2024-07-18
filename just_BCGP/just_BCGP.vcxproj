@@ -260,6 +260,10 @@
     <Image Include="res\Toolbar.bmp" />
     <Image Include="res\Toolbar.png" />
     <Image Include="res\toolbar1.bmp" />
+    <Image Include="res\toolbar2.bmp" />
+    <Image Include="res\toolbar3.bmp" />
+    <Image Include="res\toolbar\toolbar_shapes.bmp" />
+    <Image Include="res\toolbar_.bmp" />
     <Image Include="UserImages.png" />
     <Image Include="res\Workspace.png" />
     <Image Include="res\tools_page1.png" />

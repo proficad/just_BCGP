@@ -24,6 +24,9 @@
 #define IDR_TOOLBAR1                    171
 #define IDR_TOOLBAR_PAGES               171
 #define IDR_MAINFRAME_DARK              176
+#define IDR_TOOLBAR2                    177
+#define IDR_TOOLBAR3                    179
+#define IDR_TOOLBAR_SHAPES              179
 #define IDC_COMPANY_URL                 1041
 #define IDC_LIST_DLGBAR                 1048
 #define IDC_STATIC_DLGBAR               1049
@@ -35,6 +38,12 @@
 #define IDC_EDIT1                       1055
 #define ID_VIEW_CUSTOMIZE               32770
 #define ID_VIEW_TOOLBARS                32771
+#define ID_DRAW_LINE                    32772
+#define ID_DRAW_RECT                    32773
+#define ID_DRAW_ROUNDRECT               32774
+#define ID_DRAW_ELLIPSE                 32775
+#define ID_DRAW_POLYGON                 32783
+#define ID_DRAW_SELECT                  32787
 #define ID_VIEW_WORKSPACE               32791
 #define ID_VIEW_WORKSPACE2              32792
 #define ID_VIEW_USER_TOOLBAR1           32793
@@ -48,8 +57,15 @@
 #define ID_VIEW_USER_TOOLBAR9           32801
 #define ID_VIEW_USER_TOOLBAR10          32802
 #define ID_VIEW_OUTPUT                  32803
+#define ID_INSERT_LETTERING             32817
+#define ID_DRAW_POLYLINE                32818
+#define ID_INSERT_TRAFO                 32822
+#define ID_INSERT_HRADLO                32823
 #define ID_VIEW_APPLOOK                 32826
 #define ID_VIEW_PROPERTIES              32827
+#define ID_INSERT_SPOJ_ORTHO            32830
+#define ID_DRAW_BEZIER                  32838
+#define ID_INSERT_TEXT                  32848
 #define ID_VIEW_TOOLBOX                 32858
 #define ID_TOOLBOX                      32859
 #define ID_BUTTON_ORION                 32860
@@ -66,6 +82,7 @@
 #define ID_FIT_PAGE_TO_WIN              32871
 #define ID_ZOBRAZIT_ZOOMIN              32872
 #define ID_ZOBRAZIT_ZOOMOUT             32873
+#define ID_INSERT_JUNCTION              32874
 #define ID_RASTER_AUTO                  32874
 #define ID_FILE_OPTIONS                 32875
 #define ID_COMBO_ZOOM                   32876
@@ -77,12 +94,19 @@
 #define ID_BUTTON32882                  32882
 #define ID_VIEW_LISTBOX                 32883
 #define ID_VIEW_DARK_MODE               32887
+#define ID_DRAW_CHORD                   32907
+#define ID_DRAW_PIE                     32908
+#define ID_DRAW_ARC_RECT                32909
+#define ID_DRAW_OUTLET                  32965
+#define ID_DRAW_CIRCLE                  33163
+#define ID_INSERT_SPOJ_SLOPING          33189
+#define ID_DRAW_ARC_3P                  33192
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        177
+#define _APS_NEXT_RESOURCE_VALUE        182
 #define _APS_NEXT_COMMAND_VALUE         32888
 #define _APS_NEXT_CONTROL_VALUE         1056
 #define _APS_NEXT_SYMED_VALUE           124

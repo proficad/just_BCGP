@@ -53,8 +53,8 @@ CMainFrame::~CMainFrame()
 CBCGPToolbarComboBoxButton* CMainFrame::GetZoomCombo() const
 {
 	return
-		(CBCGPToolbarComboBoxButton*)m_wndToolBar.GetButton
-		(m_wndToolBar.CommandToIndex(ID_COMBO_ZOOM));
+		(CBCGPToolbarComboBoxButton*)m_wndToolBarMain.GetButton
+		(m_wndToolBarMain.CommandToIndex(ID_COMBO_ZOOM));
 }
 
 int CMainFrame::Create_Panel_Symbols()
@@ -132,13 +132,27 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndMenuBar.SetBarStyle(m_wndMenuBar.GetBarStyle() | CBRS_SIZE_DYNAMIC);
 
-	if (!m_wndToolBar.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
-//		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME, 0, 0, FALSE, 0, 0, IDB_TOOLBAR_HC))
-		!m_wndToolBar.LoadToolBar(IDR_MAINFRAME, 0, 0, FALSE, 0, 0, 0))
+	if (!m_wndToolBarMain.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
+		!m_wndToolBarMain.LoadToolBar(IDR_MAINFRAME, 0, 0, FALSE, 0, 0, 0))
 	{
-		TRACE0("Failed to create toolbar\n");
+		TRACE0("Failed to create toolbar Main\n");
 		return -1;      // fail to create
 	}
+
+
+	bool lb_second_toolbar = true;
+	if (lb_second_toolbar)
+	{
+		if (!m_wndToolBarShapes.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
+			!m_wndToolBarShapes.LoadToolBar(IDR_TOOLBAR_SHAPES, 0, 0, FALSE, 0, 0, 0))
+		{
+			TRACE0("Failed to create toolbar Shapes\n");
+			return -1;      // fail to create
+		}
+	}
+
+
+
 
 
 	if (!m_wndStatusBar.Create(this) ||
@@ -213,11 +227,18 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	CString strMainToolbarTitle;
 	strMainToolbarTitle.LoadString(IDS_MAIN_TOOLBAR);
-	m_wndToolBar.SetWindowText(strMainToolbarTitle);
+	m_wndToolBarMain.SetWindowText(strMainToolbarTitle);
 
 	// TODO: delete these three lines if you don't want the toolbar to be dockable
 	m_wndMenuBar.EnableDocking(CBRS_ALIGN_ANY);
-	m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
+
+	m_wndToolBarMain.EnableDocking(CBRS_ALIGN_ANY);
+
+	if (lb_second_toolbar)
+	{
+		m_wndToolBarShapes.EnableDocking(CBRS_ALIGN_ANY);
+	}
+
 	m_wndWorkSpace.EnableDocking(CBRS_ALIGN_ANY);
 	m_wndWorkSpace2.EnableDocking(CBRS_ALIGN_ANY);
 
@@ -232,7 +253,14 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	EnableDocking(CBRS_ALIGN_ANY);
 	EnableAutoHideBars(CBRS_ALIGN_ANY);
 	DockControlBar(&m_wndMenuBar);
-	DockControlBar(&m_wndToolBar);
+
+	DockControlBar(&m_wndToolBarMain);
+
+	if (lb_second_toolbar)
+	{
+		DockControlBar(&m_wndToolBarShapes);
+	}
+
 	DockControlBar(&m_wndWorkSpace);
 	m_wndWorkSpace2.AttachToTabWnd(&m_wndWorkSpace, BCGP_DM_STANDARD, FALSE, NULL);
 
@@ -335,7 +363,7 @@ void CMainFrame::OnComboZoom()
 	CBCGPToolbarComboBoxButton* pCombo = GetZoomCombo();
 	if (pCombo)
 	{
-		CEdit* pEdit = pCombo->GetEditCtrl();
+		CEdit* pEdit = pCombo->GetEditCtrl();//clear the registry if it crashes here
 		CString ls_what;
 		pEdit->GetWindowText(ls_what);
 	}
@@ -353,11 +381,11 @@ void CMainFrame::Set_Theme_Dark_Or_Light(bool ab_dark)
 
 	if (ab_dark)
 	{
-		m_wndToolBar.LoadBitmap(IDR_MAINFRAME_DARK);
+		m_wndToolBarMain.LoadBitmap(IDR_MAINFRAME_DARK);
 	}
 	else
 	{
-		m_wndToolBar.LoadBitmap(IDR_MAINFRAME);
+		m_wndToolBarMain.LoadBitmap(IDR_MAINFRAME);
 	}
 
 	RecalcLayout();
@@ -391,7 +419,7 @@ void CMainFrame::Create_Combo_Zoom()
 	m_combo_zoom.AddItem(L"3000%");
 
 
-	int li_count = m_wndToolBar.ReplaceButton(ID_COMBO_ZOOM, m_combo_zoom);
+	int li_count = m_wndToolBarMain.ReplaceButton(ID_COMBO_ZOOM, m_combo_zoom);
 }
 
 void CMainFrame::Create_Combo_Snap()
@@ -420,7 +448,7 @@ void CMainFrame::Create_Combo_Snap()
 	m_combo_snap.AddItem(L"1 \"");
 
 
-	int li_count = m_wndToolBar.ReplaceButton(ID_COMBO_SNAP, m_combo_snap);
+	int li_count = m_wndToolBarMain.ReplaceButton(ID_COMBO_SNAP, m_combo_snap);
 
 }
 

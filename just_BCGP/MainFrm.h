@@ -45,7 +45,10 @@ public:
 protected:  // control bar embedded members
 	CBCGPStatusBar			m_wndStatusBar;
 	CBCGPMenuBar			m_wndMenuBar;
-	CBCGPToolBar			m_wndToolBar;
+
+	CBCGPToolBar			m_wndToolBarMain;
+	CBCGPToolBar			m_wndToolBarShapes;
+
 
 	CWorkSpaceBar			m_wndWorkSpace;
 	CWorkSpaceBar2			m_wndWorkSpace2;

@@ -34,7 +34,7 @@ END_MESSAGE_MAP()
 
 // Cjust_BCGPApp construction
 
-Cjust_BCGPApp::Cjust_BCGPApp():m_dark(true)
+Cjust_BCGPApp::Cjust_BCGPApp():m_dark(false)
 {
 
 	// Support Restart Manager
@@ -45,7 +45,7 @@ Cjust_BCGPApp::Cjust_BCGPApp():m_dark(true)
 	SetApplicationLookMenu(ID_VIEW_APPLOOK, BCGP_THEMES_LIST_WIN_NATIVE | BCGP_THEMES_LIST_SCENIC | BCGP_THEMES_LIST_OFFICE_2007 | BCGP_THEMES_LIST_OFFICE_2010 | BCGP_THEMES_LIST_VS_2010 | BCGP_THEMES_LIST_OFFICE_2013 | BCGP_THEMES_LIST_VS_2013 | BCGP_THEMES_LIST_OFFICE_2016 | BCGP_THEMES_LIST_VS_2019 | BCGP_THEMES_LIST_OFFICE_2022);
 
 	// Enable VS 2019 look (Dark theme)
-	SetVisualTheme(BCGP_VISUAL_THEME_VS_2019_DARK);
+	SetVisualTheme(BCGP_VISUAL_THEME_OFFICE_2007_BLUE);
 
 	CBCGPToolbarOptions toolbarOptions;
 
