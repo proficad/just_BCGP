@@ -4,7 +4,7 @@
 
 // Page_Listbox dialog
 
-class Page_Listbox : public CPropertyPage
+class Page_Listbox : public CBCGPPropertyPage
 {
 	DECLARE_DYNAMIC(Page_Listbox)
 
@@ -21,4 +21,7 @@ protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 
 	DECLARE_MESSAGE_MAP()
+public:
+	CBCGPListBox m_listbox;
+	virtual BOOL OnInitDialog();
 };

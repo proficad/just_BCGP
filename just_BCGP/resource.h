@@ -30,7 +30,6 @@
 #define IDR_TOOLBAR3                    179
 #define IDR_TOOLBAR_SHAPES              179
 #define IDD_DLG_LISTBOX                 182
-#define IDD_DIALOG1                     184
 #define IDC_COMPANY_URL                 1041
 #define IDC_LIST_DLGBAR                 1048
 #define IDC_STATIC_DLGBAR               1049
@@ -38,6 +37,7 @@
 #define MY_GRID                         1051
 #define IDC_HINT_COUPON                 1052
 #define IDC_LIST1                       1053
+#define IDC_LISTBOX                     1053
 #define IDC_LIST2                       1054
 #define IDC_EDIT1                       1055
 #define ID_VIEW_CUSTOMIZE               32770
