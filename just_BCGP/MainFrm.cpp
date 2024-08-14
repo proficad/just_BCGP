@@ -132,7 +132,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndMenuBar.SetBarStyle(m_wndMenuBar.GetBarStyle() | CBRS_SIZE_DYNAMIC);
 
-	if (!m_wndToolBarMain.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
+	if (!m_wndToolBarMain.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC, CRect(1, 1, 1, 1), ID_TOOLBAR1) ||
 		!m_wndToolBarMain.LoadToolBar(IDR_MAINFRAME, 0, 0, FALSE, 0, 0, 0))
 	{
 		TRACE0("Failed to create toolbar Main\n");
@@ -143,7 +143,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	bool lb_second_toolbar = true;
 	if (lb_second_toolbar)
 	{
-		if (!m_wndToolBarShapes.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC) ||
+		if (!m_wndToolBarShapes.CreateEx(this, TBSTYLE_FLAT, WS_CHILD | WS_VISIBLE | CBRS_TOP | CBRS_GRIPPER | CBRS_TOOLTIPS | CBRS_FLYBY | CBRS_SIZE_DYNAMIC, CRect(1, 1, 1, 1), ID_TOOLBAR2) ||
 			!m_wndToolBarShapes.LoadToolBar(IDR_TOOLBAR_SHAPES, 0, 0, FALSE, 0, 0, 0))
 		{
 			TRACE0("Failed to create toolbar Shapes\n");

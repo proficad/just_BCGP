@@ -41,7 +41,7 @@ protected:
 protected:
 	afx_msg void OnContextMenu(CWnd*, CPoint point);
 	afx_msg void OnFilePrintPreview();
-
+	afx_msg void OnSouborExportovat();
 	afx_msg LRESULT OnPrintClient(WPARAM wp, LPARAM lp);
 	DECLARE_MESSAGE_MAP()
 public:

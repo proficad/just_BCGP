@@ -26,7 +26,7 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPView, CView)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &Cjust_BCGPView::OnFilePrintPreview)
 	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CView::OnFilePrint)
 	ON_MESSAGE(WM_PRINTCLIENT, &Cjust_BCGPView::OnPrintClient)
-
+	ON_COMMAND(ID_SOUBOR_EXPORTOVAT, OnSouborExportovat)
 	ON_COMMAND(ID_VIEW_ATTRIBUTES, &Cjust_BCGPView::OnViewAttributes)
 	ON_COMMAND(ID_VIEW_LISTBOX, &Cjust_BCGPView::OnViewListBox)
 END_MESSAGE_MAP()
@@ -69,6 +69,13 @@ void Cjust_BCGPView::OnFilePrintPreview()
 	BCGPPrintPreview (this);
 }
 
+
+
+void Cjust_BCGPView::OnSouborExportovat()
+{
+	int x = 0;
+	x++;
+}
 
 
 BOOL Cjust_BCGPView::OnPreparePrinting(CPrintInfo* pInfo)
