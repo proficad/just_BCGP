@@ -80,6 +80,15 @@ BEGIN
     CONTROL         "",IDC_LIST2,"SysListView32",LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,30,18,254,130
 END
 
+IDD_DLG_LISTBOX DIALOGEX 0, 0, 310, 177
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Dialog"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,199,156,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,253,156,50,14
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -104,6 +113,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 193
     END
+
+    IDD_DLG_LISTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 303
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 170
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -119,6 +136,11 @@ BEGIN
 END
 
 IDD_QDlgListBox AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_DLG_LISTBOX AFX_DIALOG_LAYOUT
 BEGIN
     0
 END
@@ -421,6 +443,7 @@ BEGIN
         MENUITEM "Attributes\tA",               ID_VIEW_ATTRIBUTES
         MENUITEM "ListBox\tL",                  ID_VIEW_LISTBOX
         MENUITEM "Dark Theme",                  ID_VIEW_DARK_MODE
+        MENUITEM "Sheets",                      ID_VIEW_SHEETS
     END
     POPUP "&Help"
     BEGIN

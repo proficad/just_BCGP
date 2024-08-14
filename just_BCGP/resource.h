@@ -12,6 +12,8 @@
 #define IDD_QDlgListBox                 121
 #define IDC_LIST_OF_OBJECTS             122
 #define ID_BTN_SEARCH_SYMBOLS           123
+#define ID_TOOLBAR1                     124
+#define ID_TOOLBAR2                     125
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -27,6 +29,8 @@
 #define IDR_TOOLBAR2                    177
 #define IDR_TOOLBAR3                    179
 #define IDR_TOOLBAR_SHAPES              179
+#define IDD_DLG_LISTBOX                 182
+#define IDD_DIALOG1                     184
 #define IDC_COMPANY_URL                 1041
 #define IDC_LIST_DLGBAR                 1048
 #define IDC_STATIC_DLGBAR               1049
@@ -94,6 +98,7 @@
 #define ID_BUTTON32882                  32882
 #define ID_VIEW_LISTBOX                 32883
 #define ID_VIEW_DARK_MODE               32887
+#define ID_VIEW_SHEETS                  32888
 #define ID_DRAW_CHORD                   32907
 #define ID_DRAW_PIE                     32908
 #define ID_DRAW_ARC_RECT                32909
@@ -106,9 +111,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        182
-#define _APS_NEXT_COMMAND_VALUE         32888
+#define _APS_NEXT_RESOURCE_VALUE        186
+#define _APS_NEXT_COMMAND_VALUE         32889
 #define _APS_NEXT_CONTROL_VALUE         1056
-#define _APS_NEXT_SYMED_VALUE           124
+#define _APS_NEXT_SYMED_VALUE           127
 #endif
 #endif

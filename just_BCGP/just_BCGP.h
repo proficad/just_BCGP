@@ -36,6 +36,7 @@ public:
 	afx_msg void OnFileNewFrame();
 	afx_msg void OnFileNew();
 	afx_msg void OnFileViewDark();
+	afx_msg void OnViewSheets();
 
 
 	DECLARE_MESSAGE_MAP()

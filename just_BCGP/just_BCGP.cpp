@@ -7,6 +7,7 @@
 
 #include "just_BCGPDoc.h"
 #include "just_BCGPView.h"
+#include "Page_Listbox.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -24,6 +25,7 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPApp, CBCGPWinApp)
 	ON_COMMAND(ID_FILE_NEW, &Cjust_BCGPApp::OnFileNew)
 
 	ON_COMMAND(ID_VIEW_DARK_MODE, OnFileViewDark)
+	ON_COMMAND(ID_VIEW_SHEETS, OnViewSheets)
 
 	// Standard file based document commands
 	ON_COMMAND(ID_FILE_OPEN, &CBCGPWinApp::OnFileOpen)
@@ -326,6 +328,23 @@ void Cjust_BCGPApp::OnFileViewDark()
 	m_dark = !m_dark;
 	Set_Theme_Dark_Or_Light(m_dark);
 }
+
+
+
+
+void Cjust_BCGPApp::OnViewSheets()
+{
+	CBCGPPropertySheet l_sheet(L"BOM");
+
+	Page_Listbox l_page;
+	l_sheet.AddPage(&l_page);
+
+	l_sheet.DoModal();
+
+}
+
+
+
 
 void Cjust_BCGPApp::Set_Theme_Dark_Or_Light(bool ab_dark)
 {

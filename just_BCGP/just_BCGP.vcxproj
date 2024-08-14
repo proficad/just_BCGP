@@ -191,6 +191,7 @@
   <ItemGroup>
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="OutputBar.h" />
+    <ClInclude Include="Page_Listbox.h" />
     <ClInclude Include="panels\Panel_Layers.h" />
     <ClInclude Include="panels\Panel_Pages.h" />
     <ClInclude Include="panels\Panel_Symbols.h" />
@@ -213,6 +214,7 @@
   <ItemGroup>
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="OutputBar.cpp" />
+    <ClCompile Include="Page_Listbox.cpp" />
     <ClCompile Include="panels\Panel_Layers.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../stdafx.h</PrecompiledHeaderFile>
