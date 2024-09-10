@@ -15,6 +15,7 @@ Page_Listbox::Page_Listbox(CWnd* pParent /*=nullptr*/)
 	: CBCGPPropertyPage(IDD_DLG_LISTBOX)
 {
 	EnableVisualManagerStyle(TRUE);
+	
 }
 
 Page_Listbox::~Page_Listbox()

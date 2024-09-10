@@ -29,6 +29,7 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPView, CView)
 	ON_COMMAND(ID_SOUBOR_EXPORTOVAT, OnSouborExportovat)
 	ON_COMMAND(ID_VIEW_ATTRIBUTES, &Cjust_BCGPView::OnViewAttributes)
 	ON_COMMAND(ID_VIEW_LISTBOX, &Cjust_BCGPView::OnViewListBox)
+
 END_MESSAGE_MAP()
 
 // Cjust_BCGPView construction/destruction
@@ -129,6 +130,9 @@ LRESULT Cjust_BCGPView::OnPrintClient(WPARAM wp, LPARAM lp)
 
 	return 0;
 }
+
+
+
 
 
 void Cjust_BCGPView::OnContextMenu(CWnd*, CPoint point)

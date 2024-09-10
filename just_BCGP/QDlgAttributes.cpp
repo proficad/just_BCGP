@@ -30,6 +30,7 @@ void QDlgAttributes::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(QDlgAttributes, CBCGPDialog)
 	ON_NOTIFY(NM_CLICK, (UINT)-1, OnNMClick)
 	ON_WM_RBUTTONDOWN()
+	ON_REGISTERED_MESSAGE(BCGM_GRID_SEL_CHANGED, OnGridSelChanged)
 END_MESSAGE_MAP()
 
 
@@ -110,6 +111,37 @@ void QDlgAttributes::OnNMClick(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	ShowContextMenu();
 
+}
+
+LRESULT QDlgAttributes::OnGridSelChanged(WPARAM, LPARAM lp)
+{
+	BCGPGRID_NOTIFICATION* pInfo = (BCGPGRID_NOTIFICATION*)lp;
+
+	if (pInfo == nullptr)
+	{
+		return 0;
+	}
+
+	CBCGPGridRow* pRow = m_wndGrid.GetRow(pInfo->nRow);// pInfo->nRow is always 0
+	if (pRow == nullptr)
+	{
+		return 0;
+	}
+
+
+	if (pRow->GetItemCount() == 0)
+	{
+		return 0;
+	}
+
+	CBCGPGridItem* pItem = pRow->GetItem(0);// here it crashes
+	if (pItem == nullptr)
+	{
+		return 0;
+	}
+
+
+	return 0;
 }
 
 void QDlgAttributes::ShowContextMenu()
