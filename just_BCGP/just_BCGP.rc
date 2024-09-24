@@ -460,6 +460,7 @@ BEGIN
         MENUITEM "ListBox\tL",                  ID_VIEW_LISTBOX
         MENUITEM "Dark Theme",                  ID_VIEW_DARK_MODE
         MENUITEM "Sheets",                      ID_VIEW_SHEETS
+        MENUITEM "Owner Draw",                  ID_VIEW_OWNER_DRAW
     END
     POPUP "&Help"
     BEGIN

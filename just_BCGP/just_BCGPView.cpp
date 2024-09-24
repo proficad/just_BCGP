@@ -9,6 +9,7 @@
 
 #include "QDlgAttributes.h"
 #include "QDlgListBox.h"
+#include "QDlgOwnerDraw.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -29,6 +30,7 @@ BEGIN_MESSAGE_MAP(Cjust_BCGPView, CView)
 	ON_COMMAND(ID_SOUBOR_EXPORTOVAT, OnSouborExportovat)
 	ON_COMMAND(ID_VIEW_ATTRIBUTES, &Cjust_BCGPView::OnViewAttributes)
 	ON_COMMAND(ID_VIEW_LISTBOX, &Cjust_BCGPView::OnViewListBox)
+	ON_COMMAND(ID_VIEW_OWNER_DRAW, &Cjust_BCGPView::OnViewOwnerDraw)
 
 END_MESSAGE_MAP()
 
@@ -155,5 +157,11 @@ void Cjust_BCGPView::OnViewAttributes()
 void Cjust_BCGPView::OnViewListBox()
 {
 	QDlgListBox l_dlg;
+	l_dlg.DoModal();
+}
+
+void Cjust_BCGPView::OnViewOwnerDraw()
+{
+	QDlgOwnerDraw l_dlg;
 	l_dlg.DoModal();
 }

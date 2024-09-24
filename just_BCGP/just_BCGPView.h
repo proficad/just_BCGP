@@ -48,6 +48,7 @@ protected:
 public:
 	afx_msg void OnViewAttributes();
 	afx_msg void OnViewListBox();
+	afx_msg void OnViewOwnerDraw();
 
 
 
