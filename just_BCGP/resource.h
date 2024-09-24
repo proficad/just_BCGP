@@ -14,6 +14,7 @@
 #define ID_BTN_SEARCH_SYMBOLS           123
 #define ID_TOOLBAR1                     124
 #define ID_TOOLBAR2                     125
+#define IDD_QDlgOwnerDraw               127
 #define IDR_MAINFRAME                   128
 #define IDR_justBCGPTYPE                129
 #define IDR_CONTEXT_MENU                130
@@ -114,6 +115,6 @@
 #define _APS_NEXT_RESOURCE_VALUE        186
 #define _APS_NEXT_COMMAND_VALUE         32889
 #define _APS_NEXT_CONTROL_VALUE         1056
-#define _APS_NEXT_SYMED_VALUE           127
+#define _APS_NEXT_SYMED_VALUE           128
 #endif
 #endif

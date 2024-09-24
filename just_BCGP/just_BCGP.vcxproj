@@ -202,6 +202,7 @@
     <ClInclude Include="PropertiesViewBar.h" />
     <ClInclude Include="QDlgAttributes.h" />
     <ClInclude Include="QDlgListBox.h" />
+    <ClInclude Include="QDlgOwnerDraw.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="just_BCGP.h" />
     <ClInclude Include="just_BCGPDoc.h" />
@@ -242,6 +243,7 @@
     <ClCompile Include="just_BCGPView.cpp" />
     <ClCompile Include="QDlgAttributes.cpp" />
     <ClCompile Include="QDlgListBox.cpp" />
+    <ClCompile Include="QDlgOwnerDraw.cpp" />
     <ClCompile Include="ToolBox.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
