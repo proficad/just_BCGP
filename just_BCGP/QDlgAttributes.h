@@ -35,7 +35,9 @@ public:
 	virtual BOOL OnInitDialog();
 	afx_msg void OnRButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnNMClick(NMHDR* pNMHDR, LRESULT* pResult);
-	afx_msg LRESULT OnGridSelChanged(WPARAM, LPARAM lp);
+	afx_msg LRESULT QDlgAttributes::OnGridSelChanged(WPARAM, LPARAM lp);
+
+	virtual BOOL OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);//}}AFX_VIRTUAL
 
 private:
 	void ShowContextMenu();

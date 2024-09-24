@@ -30,7 +30,7 @@ void QDlgAttributes::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(QDlgAttributes, CBCGPDialog)
 	ON_NOTIFY(NM_CLICK, (UINT)-1, OnNMClick)
 	ON_WM_RBUTTONDOWN()
-	ON_REGISTERED_MESSAGE(BCGM_GRID_SEL_CHANGED, OnGridSelChanged)
+	//ON_REGISTERED_MESSAGE(BCGPGN_SELCHANGED, OnGridSelChanged)
 END_MESSAGE_MAP()
 
 
@@ -111,6 +111,39 @@ void QDlgAttributes::OnNMClick(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	ShowContextMenu();
 
+}
+
+BOOL QDlgAttributes::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+{
+	NMHDR* pNMHDR = (NMHDR*)(lParam);
+	if (pNMHDR != NULL && pNMHDR->code == BCGPGN_SELCHANGED && pNMHDR->hwndFrom == m_wndGrid.GetSafeHwnd())
+	{
+		BCGPGRID_NOTIFICATION* pII = (BCGPGRID_NOTIFICATION*)pNMHDR;
+		if (pII == nullptr)
+		{
+			return 0;
+		}
+
+		const bool lb_is_selecting = (1 == pII->lParam);
+		if (!lb_is_selecting)
+		{
+			return 0;
+		}
+
+		CBCGPGridRow* pRow = m_wndGrid.GetRow(pII->nRow);
+		if (pRow == nullptr)
+		{
+			return 0;
+		}
+
+		ASSERT_VALID(pRow);
+
+
+		* pResult = 0L;
+		return TRUE;
+	}
+
+	return CBCGPDialog::OnNotify(wParam, lParam, pResult);
 }
 
 LRESULT QDlgAttributes::OnGridSelChanged(WPARAM, LPARAM lp)
