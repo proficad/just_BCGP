@@ -42,8 +42,8 @@ void Panel_Pages::AdjustLayout()
 		m_wndToolBar.SetWindowPos(NULL, 0, 0, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
 	}
 
-	m_wndTree.SetWindowPos(NULL, 0, cyTlb, rectClient.Width(), rectClient.Height() - cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
-
+	
+	m_list.SetWindowPos(NULL, 0, cyTlb, rectClient.Width(), rectClient.Height() - cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
 }
 
 void Panel_Pages::ShowPreview(int ai_index)
@@ -92,23 +92,50 @@ int Panel_Pages::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CRect rectDummy;
 	rectDummy.SetRectEmpty();
 
-	// Create tree control:
-	const DWORD dwViewStyle =	WS_CHILD | WS_VISIBLE | TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS | TVS_SHOWSELALWAYS;
-
-	m_wndTree.m_bVisualManagerStyle = TRUE;
-
-	if (!m_wndTree.Create(dwViewStyle, rectDummy, this, 1))
+	m_list.m_bVisualManagerStyle = TRUE;
+	if (m_list.GetSafeHwnd() == 0)
 	{
-		TRACE0("Failed to create treeview in the panel Pages\n");
-		return -1;      // fail to create
+		m_list.Create(WS_CHILD | WS_VISIBLE | WS_BORDER | WS_HSCROLL | WS_VSCROLL | LBS_HASSTRINGS | LBS_NOTIFY | LBS_OWNERDRAWFIXED,
+			CRect(0, 0, 0, 0), this, 2025);
 	}
 
-	// Setup tree content:
-	HTREEITEM hRoot = m_wndTree.InsertItem(_T("Pages Root"));
-	m_wndTree.InsertItem(_T("Pages Item 1"), hRoot);
-	m_wndTree.InsertItem(_T("Pages Item 2"), hRoot);
+	CFont* pFont = m_list.GetFont();//<-- returns null
+	if (pFont)
+	{
+		//increase the font by 20 %
+		LOGFONT lf;
+		pFont->GetLogFont(&lf);
 
-	m_wndTree.Expand(hRoot, TVE_EXPAND);
+		// Increase the font height by 20%.
+		// lfHeight is in logical units. A negative value indicates character height.
+		// We increase the absolute value to make the font larger.
+		if (lf.lfHeight > 0)
+		{
+			lf.lfHeight = static_cast<LONG>(lf.lfHeight * 1.20);
+		}
+		else // lf.lfHeight <= 0
+		{
+			lf.lfHeight = static_cast<LONG>(lf.lfHeight * 1.20); // Increasing the absolute value
+		}
+
+
+		// Create the new font. Delete the old one if it was previously created.
+		if (m_listFontLarge.GetSafeHandle())
+		{
+			m_listFontLarge.DeleteObject();
+		}
+		m_listFontLarge.CreateFontIndirect(&lf);
+
+		// Set the new font to the list control
+		m_list.SetFont(&m_listFontLarge);
+	}
+
+	m_list.AddString(_T("Page 1"));
+	m_list.AddString(_T("Page 2"));
+	m_list.AddString(_T("Page 3"));
+	m_list.AddString(_T("Page 4"));
+	
+
 
 	return 0;
 }
@@ -118,7 +145,7 @@ void Panel_Pages::OnSize(UINT nType, int cx, int cy)
 	QPanel_With_Preview::OnSize(nType, cx, cy);
 
 	// Tree control should cover a whole client area:
-	m_wndTree.SetWindowPos(NULL, 0, 0, cx, cy, SWP_NOACTIVATE | SWP_NOZORDER);
+	AdjustLayout();
 }
 
 void Toolbar_Pages::AdjustLayout()
