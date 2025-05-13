@@ -39,6 +39,9 @@ END_MESSAGE_MAP()
 Cjust_BCGPApp::Cjust_BCGPApp():m_dark(false)
 {
 
+	m_bDPIAware = false;
+	SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_UNAWARE);
+
 	// Support Restart Manager
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_ALL_ASPECTS;
 
