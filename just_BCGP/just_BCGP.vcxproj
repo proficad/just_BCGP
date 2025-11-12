@@ -201,6 +201,7 @@
     <ClInclude Include="panels\QListBoxWithKeyboard.h" />
     <ClInclude Include="PropertiesViewBar.h" />
     <ClInclude Include="QDlgAttributes.h" />
+    <ClInclude Include="QDlgCableManager.h" />
     <ClInclude Include="QDlgListBox.h" />
     <ClInclude Include="QDlgOwnerDraw.h" />
     <ClInclude Include="QStyleGridItem.h" />
@@ -237,12 +238,16 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../stdafx.h</PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="panels\QListBoxWithKeyboard.cpp" />
+    <ClCompile Include="panels\QListBoxWithKeyboard.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="PropertiesViewBar.cpp" />
     <ClCompile Include="just_BCGP.cpp" />
     <ClCompile Include="just_BCGPDoc.cpp" />
     <ClCompile Include="just_BCGPView.cpp" />
     <ClCompile Include="QDlgAttributes.cpp" />
+    <ClCompile Include="QDlgCableManager.cpp" />
     <ClCompile Include="QDlgListBox.cpp" />
     <ClCompile Include="QDlgOwnerDraw.cpp" />
     <ClCompile Include="QStyleGridItem.cpp" />

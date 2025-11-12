@@ -3,25 +3,23 @@
 // QListBoxWithKeyboard.cpp : implementation file
 //
 
-#include "stdafx.h"
+#include "../stdafx.h"
 #include "QListBoxWithKeyboard.h"
 #include "../resource.h"
 
 // QListBoxWithKeyboard
 
-IMPLEMENT_DYNAMIC(QListBoxWithKeyboard, CBCGPListBox)
+IMPLEMENT_DYNAMIC(QListBoxWithKeyboard, CBCGPDragListBox)
 
 QListBoxWithKeyboard::QListBoxWithKeyboard()
 {
 //	bitmapBkgnd.Attach (LoadBitmap (AfxGetInstanceHandle(), MAKEINTRESOURCE("IDR_BG1")));
 }
 
-QListBoxWithKeyboard::~QListBoxWithKeyboard()
-{
-}
 
 
-BEGIN_MESSAGE_MAP(QListBoxWithKeyboard, CBCGPListBox)
+
+BEGIN_MESSAGE_MAP(QListBoxWithKeyboard, CBCGPDragListBox)
 	ON_WM_KEYDOWN()
 //	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
@@ -98,12 +96,14 @@ void QListBoxWithKeyboard::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 
 	
-	CListBox::OnKeyDown(nChar, nRepCnt, nFlags);
+	CBCGPDragListBox::OnKeyDown(nChar, nRepCnt, nFlags);
 }
 
-/*
+
 void QListBoxWithKeyboard::Dropped( int nSrcIndex, CPoint pt )
 {
+	int LISTBOX_DROPPED = 20242025;
+
 	int li_what = nSrcIndex;
 	int li_target = m_nLast;
 
@@ -120,8 +120,7 @@ void QListBoxWithKeyboard::Dropped( int nSrcIndex, CPoint pt )
 		pWnd->SendMessage(WM_NOTIFY, 0, (LPARAM)&l_dropped);
 	}
 
-	CDragListBox::Dropped(nSrcIndex, pt);
+	CBCGPDragListBox::Dropped(nSrcIndex, pt);
 
 
 }
-*/

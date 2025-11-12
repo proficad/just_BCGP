@@ -60,6 +60,8 @@ int Panel_Layers::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_list.AddString(L"one");
 	m_list.AddString(L"two");
 	m_list.AddString(L"three");
+	m_list.AddString(L"four");
+	m_list.AddString(L"five");
 
 	return 0;
 }

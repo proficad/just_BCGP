@@ -5,6 +5,7 @@
 #include "just_BCGP.h"
 
 #include "MainFrm.h"
+#include "QDlgCableManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -18,6 +19,8 @@ IMPLEMENT_DYNCREATE(CMainFrame, CBCGPFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CBCGPFrameWnd)
 	ON_WM_CREATE()
 	ON_COMMAND(ID_FILE_CLOSE, &CMainFrame::OnFileClose)
+	ON_COMMAND(ID_VIEW_CABLEMANAGER, &CMainFrame::OnFileCableManager)
+
 	ON_REGISTERED_MESSAGE(BCGM_RESETTOOLBAR, &CMainFrame::OnToolbarReset)
 	ON_COMMAND(ID_TOOLBOX, &CMainFrame::OnToolBox)
 	ON_MESSAGE(WM_DPICHANGED, &CMainFrame::OnDPIChanged)
@@ -37,9 +40,10 @@ static UINT indicators[] =
 
 // CMainFrame construction/destruction
 
-CMainFrame::CMainFrame()
+CMainFrame::CMainFrame() 
 	: m_combo_zoom(ID_COMBO_ZOOM, CImageHash::GetImageOfCommand(ID_COMBO_ZOOM, FALSE), CBS_DROPDOWN, 100)
 	, m_combo_snap(ID_COMBO_SNAP, CImageHash::GetImageOfCommand(ID_COMBO_SNAP, FALSE), CBS_DROPDOWN, 100)
+	, m_wndCableManager(nullptr)
 {
 	SetDockingBarsIconList(IDB_WORKSPACE);
 
@@ -275,6 +279,32 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	return 0;
 }
+
+void CMainFrame::OnFileCableManager()
+{
+
+	if (m_wndCableManager)
+	{
+		if (!m_wndCableManager->IsWindowVisible())
+		{
+			m_wndCableManager->ShowWindow(SW_SHOW);
+		}
+	}
+	else
+	{
+		m_wndCableManager = new QDlgCableManager();
+
+		if (!m_wndCableManager->Create(IDD_DLG_CABLE_MANAGER, this)) // if step 3 override was done
+		{
+			delete m_wndCableManager;
+			m_wndCableManager = NULL;
+			return;
+		}
+
+		m_wndCableManager->ShowWindow(SW_SHOW);
+	}
+}
+
 
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {

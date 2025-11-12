@@ -70,6 +70,14 @@ BEGIN
     CONTROL         "",MY_GRID,"Static",SS_BLACKFRAME,7,7,306,125
 END
 
+IDD_DLG_CABLE_MANAGER DIALOGEX 0, 0, 302, 219
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU | WS_THICKFRAME
+FONT 9, "Microsoft Sans Serif", 400, 0, 0xEE
+BEGIN
+    CONTROL         "",IDC_GRID_CABLES,"Static",SS_BLACKFRAME,6,7,283,104
+    CONTROL         "",IDC_GRID_WIRES,"Static",SS_BLACKFRAME,6,120,282,91
+END
+
 IDD_QDlgListBox DIALOGEX 0, 0, 320, 200
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Dialog"
@@ -113,6 +121,12 @@ BEGIN
         RIGHTMARGIN, 313
         TOPMARGIN, 7
         BOTTOMMARGIN, 193
+    END
+
+    IDD_DLG_CABLE_MANAGER, DIALOG
+    BEGIN
+        RIGHTMARGIN, 295
+        BOTTOMMARGIN, 215
     END
 
     IDD_QDlgListBox, DIALOG
@@ -167,6 +181,11 @@ BEGIN
     0
 END
 
+IDD_DLG_CABLE_MANAGER AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -186,6 +205,10 @@ BEGIN
     BUTTON      ID_BUTTON32880
     BUTTON      ID_BUTTON32881
     BUTTON      ID_BUTTON32882
+    BUTTON      ID_BUTTON32892
+    BUTTON      ID_BUTTON32893
+    BUTTON      ID_BUTTON32894
+    BUTTON      ID_BUTTON32895
 END
 
 #endif    // Czech (Czech Republic) resources
@@ -467,6 +490,7 @@ BEGIN
         MENUITEM "Dark Theme",                  ID_VIEW_DARK_MODE
         MENUITEM "Sheets",                      ID_VIEW_SHEETS
         MENUITEM "Owner Draw",                  ID_VIEW_OWNER_DRAW
+        MENUITEM "Cable Manager",               ID_VIEW_CABLEMANAGER
     END
     POPUP "&Help"
     BEGIN

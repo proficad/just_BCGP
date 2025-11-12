@@ -76,8 +76,11 @@ BOOL QDlgAttributes::OnInitDialog()
 	m_wndGrid.AddRow(l_row);
 
 
+	for (int i = 0; i < 100; i++)
+	{
+		m_wndGrid.AddRow();
 
-	m_wndGrid.AddRow();
+	}
 	m_wndGrid.AddRow();
 	auto l_last = m_wndGrid.GetRow(m_wndGrid.GetRowCount() - 1);
 	l_last->GetItem(0)->SetValue(_T("Last Row:"));

@@ -25,7 +25,7 @@
 #define IDB_TOOLS_PAGE2                 168
 #define IDD_DIALOGBAR                   169
 #define IDR_TOOLBAR1                    171
-#define IDR_TOOLBAR_PAGES               171
+#define IDR_TOOLBAR_PAGES               172
 #define IDR_MAINFRAME_DARK              176
 #define IDR_TOOLBAR2                    177
 #define IDR_TOOLBAR3                    179
@@ -41,6 +41,9 @@
 #define IDC_LISTBOX                     1053
 #define IDC_LIST2                       1054
 #define IDC_EDIT1                       1055
+#define IDC_GRID_CABLES                 1272
+#define IDC_GRID_WIRES                  1274
+#define IDD_DLG_CABLE_MANAGER           1278
 #define ID_VIEW_CUSTOMIZE               32770
 #define ID_VIEW_TOOLBARS                32771
 #define ID_DRAW_LINE                    32772
@@ -102,6 +105,11 @@
 #define ID_VIEW_SHEETS                  32888
 #define ID_VIEW_O                       32889
 #define ID_VIEW_OWNER_DRAW              32890
+#define ID_VIEW_CABLEMANAGER            32891
+#define ID_BUTTON32892                  32892
+#define ID_BUTTON32893                  32893
+#define ID_BUTTON32894                  32894
+#define ID_BUTTON32895                  32895
 #define ID_DRAW_CHORD                   32907
 #define ID_DRAW_PIE                     32908
 #define ID_DRAW_ARC_RECT                32909
@@ -115,7 +123,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        186
-#define _APS_NEXT_COMMAND_VALUE         32891
+#define _APS_NEXT_COMMAND_VALUE         32896
 #define _APS_NEXT_CONTROL_VALUE         1056
 #define _APS_NEXT_SYMED_VALUE           128
 #endif

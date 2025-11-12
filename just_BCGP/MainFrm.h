@@ -12,6 +12,8 @@
 #include "panels/Panel_Pages.h"
 #include "panels/Panel_Symbols.h"
 
+class QDlgCableManager;
+
 class CMainFrame : public CBCGPFrameWnd
 {
 
@@ -61,6 +63,8 @@ protected:  // control bar embedded members
 	CBCGPPropBar			m_wndPropGrid;
 	CToolBoxBarEx			m_wndToolBox;
 
+	QDlgCableManager* m_wndCableManager;
+
 
 	CBCGPToolbarComboBoxButton* GetZoomCombo() const;
 
@@ -90,5 +94,6 @@ private:
 	void Create_Combo_Zoom();
 	void Create_Combo_Snap();
 
+	void OnFileCableManager();
 
 };

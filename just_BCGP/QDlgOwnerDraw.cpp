@@ -65,7 +65,7 @@ BOOL QDlgOwnerDraw::OnInitDialog()
 	QStyleGridItem* l_item_style = new QStyleGridItem();
 	l_row->ReplaceItem(0, l_item_style);
 
-	l_item_style->SetReadOnly(TRUE);
+	l_item_style->AllowEdit(FALSE);
 
 
 	l_row->GetItem(0)->SetValue(L"hi");
