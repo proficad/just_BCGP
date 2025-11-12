@@ -54,7 +54,7 @@ void Panel_Pages::ShowPreview(int ai_index)
 void Panel_Pages::Create_Toolbar()
 {
 	// Create toolbar:
-	if (!m_wndToolBar.Create(this, dwDefaultToolbarStyle, AFX_IDW_TOOLBAR + 1) ||
+	if (!m_wndToolBar.Create(this, dwDefaultToolbarStyle, IDR_TOOLBAR_PAGES) ||
 		!m_wndToolBar.LoadToolBar(IDR_TOOLBAR_PAGES, 0, 0, TRUE /* Is locked */, 0, 0, 0))
 	{
 		TRACE0("Failed to create toolbar\n");
