@@ -30,7 +30,8 @@ public:
 // Attributes
 protected:
 	Toolbar_Pages m_wndToolBar;
-	CBCGPTreeCtrl m_wndTree;
+	CBCGPDragListBox m_list;
+	CFont m_listFontLarge; // Member variable to hold the larger font
 
 	void Create_Toolbar();
 
