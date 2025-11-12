@@ -117,6 +117,8 @@ void Panel_Pages::OnSize(UINT nType, int cx, int cy)
 {
 	QPanel_With_Preview::OnSize(nType, cx, cy);
 
+	AdjustLayout();
+
 	// Tree control should cover a whole client area:
 	m_wndTree.SetWindowPos(NULL, 0, 0, cx, cy, SWP_NOACTIVATE | SWP_NOZORDER);
 }
